@@ -1,6 +1,6 @@
 # Coup
 
-## The card game Coup programmed functionally in Clojure.
+## The card game Coup programmed functionally in Clojure
 
 ### Project description
 
