@@ -25,7 +25,7 @@ The User table represents users in the system, not the game itself. This table j
 
 The Player table represents a user in a specific game. This table stores information specific to a game instance about a player, such as how many coins they have.
 
-The Game table represents a single game (1 round only). It tracks game specific data (like the number of turns played).
+The Game table represents a single game (1 round only). It tracks game specific data (like who's turn it is).
 
 The Deck table represents the materials shared by all players in a game (i.e. undrawn cards and unclaimed coins).
 
@@ -67,7 +67,7 @@ Player.role_2 - ^^
 
 Player.num_coins - the number of coins a player has at his/her disposal
 
-Game.turn - how many complete turns have elapsed (1 turn = each player goes once)
+Game.turn - which player has the current turn
 
 Deck.num_assassins - the number of assassins left in the deck
 
