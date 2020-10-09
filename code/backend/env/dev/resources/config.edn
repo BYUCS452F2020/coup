@@ -1,0 +1,4 @@
+;; env/dev/resources/config.edn
+{:dev true
+ :port 3030
+ :nrepl-port 7000}

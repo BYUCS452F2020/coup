@@ -1,0 +1,792 @@
+2020-10-09 12:02:47,099 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 12:02:48,051 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 12:02:48,353 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 12:02:48,413 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@730e5640 
+2020-10-09 12:02:48,423 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 12:02:48,597 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 12:02:48,650 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 12:02:48,709 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 12:02:48,709 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 12:02:48,709 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 12:02:48,709 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 12:02:48,710 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 12:02:55,178 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path / 
+2020-10-09 12:02:55,233 [XNIO-1 task-1] DEBUG io.undertow.session - Created session with id TeN6ORyI62SooaY_mhvMKDK4e_Qstk1lkTu2V1xF for exchange HttpServerExchange{ GET / request {Accept=[text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8], Connection=[keep-alive], Accept-Language=[en-US,en;q=0.5], Accept-Encoding=[gzip, deflate], User-Agent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:80.0) Gecko/20100101 Firefox/80.0], Upgrade-Insecure-Requests=[1], Host=[localhost:3030]} response {Server=[undertow]}} 
+2020-10-09 12:02:55,359 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /assets/bulma/css/bulma.css 
+2020-10-09 12:02:55,360 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /assets/font-awesome/css/all.min.css 
+2020-10-09 12:02:55,360 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /css/style.css 
+2020-10-09 12:02:55,361 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /js/app.js 
+2020-10-09 12:02:55,472 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /favicon.ico 
+2020-10-09 12:03:02,881 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /ping 
+2020-10-09 12:03:02,949 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /css/style.css 
+2020-10-09 12:03:55,419 [XNIO-1 I/O-1] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:48542 
+2020-10-09 12:03:55,469 [XNIO-1 I/O-3] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:48544 
+2020-10-09 12:03:59,706 [Thread-4] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 12:03:59,709 [Thread-4] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@730e5640 
+2020-10-09 12:03:59,715 [Thread-4] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 12:03:59,715 [Thread-4] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 12:03:59,716 [Thread-4] INFO  coup.core - #'user/garden stopped 
+2020-10-09 12:03:59,716 [Thread-4] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 12:03:59,716 [Thread-4] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 13:57:35,146 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 13:57:36,245 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 13:57:36,764 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 13:57:36,828 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@6193f40e 
+2020-10-09 13:57:36,844 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 13:57:37,076 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 13:57:37,121 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 13:57:37,192 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 13:57:37,192 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 13:57:37,192 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 13:57:37,192 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 13:57:37,192 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 13:57:42,810 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path / 
+2020-10-09 13:57:42,872 [XNIO-1 task-1] DEBUG io.undertow.session - Created session with id TeN6ORyI62SooaY_mhvMKDK4e_Qstk1lkTu2V1xF for exchange HttpServerExchange{ GET / request {Accept=[text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8], Connection=[keep-alive], Accept-Language=[en-US,en;q=0.5], Accept-Encoding=[gzip, deflate], Cookie=[JSESSIONID=TeN6ORyI62SooaY_mhvMKDK4e_Qstk1lkTu2V1xF], User-Agent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:80.0) Gecko/20100101 Firefox/80.0], Upgrade-Insecure-Requests=[1], Host=[localhost:3030]} response {Server=[undertow]}} 
+2020-10-09 13:57:42,994 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /js/app.js 
+2020-10-09 13:57:42,996 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /assets/font-awesome/css/all.min.css 
+2020-10-09 13:57:42,996 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /assets/bulma/css/bulma.css 
+2020-10-09 13:57:42,996 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /css/style.css 
+2020-10-09 13:57:43,020 [XNIO-1 task-4] DEBUG io.undertow.request.io - Fixed length stream closed with with 213595 bytes remaining 
+2020-10-09 13:57:43,031 [XNIO-1 task-4] DEBUG io.undertow.request.io - UT005013: An IOException occurred 
+java.io.IOException: Broken pipe
+	at sun.nio.ch.FileDispatcherImpl.write0(Native Method) ~[na:1.8.0_252]
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47) ~[na:1.8.0_252]
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93) ~[na:1.8.0_252]
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51) ~[na:1.8.0_252]
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:468) ~[na:1.8.0_252]
+	at org.xnio.nio.NioSocketConduit.write(NioSocketConduit.java:152) ~[xnio-nio-3.3.6.Final.jar:3.3.6.Final]
+	at io.undertow.server.protocol.http.HttpResponseConduit.write(HttpResponseConduit.java:607) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.conduits.AbstractFixedLengthStreamSinkConduit.write(AbstractFixedLengthStreamSinkConduit.java:106) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at org.xnio.conduits.ConduitStreamSinkChannel.write(ConduitStreamSinkChannel.java:150) ~[xnio-api-3.3.6.Final.jar:3.3.6.Final]
+	at io.undertow.channels.DetachableStreamSinkChannel.write(DetachableStreamSinkChannel.java:240) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$WriteDispatchChannel.write(HttpServerExchange.java:2049) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.io.UndertowOutputStream.writeBufferBlocking(UndertowOutputStream.java:293) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.io.UndertowOutputStream.write(UndertowOutputStream.java:203) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at clojure.java.io$fn__11530.invokeStatic(io.clj:307) ~[clojure-1.10.1.jar:na]
+	at clojure.java.io$fn__11530.invoke(io.clj:302) ~[clojure-1.10.1.jar:na]
+	at clojure.lang.MultiFn.invoke(MultiFn.java:239) ~[clojure-1.10.1.jar:na]
+	at clojure.java.io$copy.invokeStatic(io.clj:406) ~[clojure-1.10.1.jar:na]
+	at clojure.java.io$copy.doInvoke(io.clj:391) ~[clojure-1.10.1.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) ~[clojure-1.10.1.jar:na]
+	at immutant.web.internal.ring$eval28814$fn__28815.invoke(ring.clj:140) ~[na:na]
+	at clojure.lang.MultiFn.invoke(MultiFn.java:239) ~[clojure-1.10.1.jar:na]
+	at immutant.web.internal.undertow$eval37275$fn__37313$action__37314.invoke(undertow.clj:159) ~[na:na]
+	at immutant.web.internal.undertow$eval37275$fn__37313.invoke(undertow.clj:172) ~[na:na]
+	at immutant.web.internal.ring$eval28724$fn__28747$G__28713__28758.invoke(ring.clj:106) ~[na:na]
+	at immutant.web.internal.ring$write_response.invokeStatic(ring.clj:164) ~[na:na]
+	at immutant.web.internal.ring$write_response.invoke(ring.clj:157) ~[na:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__37353$fn__37354.invoke(undertow.clj:241) ~[na:na]
+	at immutant.web.internal.ring$handle_write_error.invokeStatic(ring.clj:155) ~[na:na]
+	at immutant.web.internal.ring$handle_write_error.invoke(ring.clj:142) ~[na:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__37353.handleRequest(undertow.clj:240) ~[na:na]
+	at org.projectodd.wunderboss.web.undertow.async.websocket.UndertowWebsocket$2.handleRequest(UndertowWebsocket.java:109) ~[wunderboss-web-undertow-0.13.1.jar:na]
+	at io.undertow.server.session.SessionAttachmentHandler.handleRequest(SessionAttachmentHandler.java:68) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:211) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:809) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_252]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_252]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_252]
+2020-10-09 13:57:43,069 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /favicon.ico 
+2020-10-09 13:57:47,784 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /ping 
+2020-10-09 13:57:47,848 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /css/style.css 
+2020-10-09 13:58:12,960 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/ping 
+2020-10-09 13:58:18,454 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs 
+2020-10-09 13:58:18,557 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 13:58:18,703 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/css/typography.css 
+2020-10-09 13:58:18,703 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/css/reset.css 
+2020-10-09 13:58:18,703 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/css/screen.css 
+2020-10-09 13:58:18,704 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 13:58:18,706 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/css/print.css 
+2020-10-09 13:58:18,706 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 13:58:18,710 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 13:58:18,710 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 13:58:18,712 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 13:58:18,714 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 13:58:18,715 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 13:58:18,716 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 13:58:18,718 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 13:58:18,724 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 13:58:18,727 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 13:58:18,727 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 13:58:18,729 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 13:58:18,730 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 13:58:18,766 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 13:58:18,815 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 13:58:19,024 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/images/favicon-16x16.png 
+2020-10-09 13:58:19,035 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 13:58:48,092 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 13:58:48,174 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/css/typography.css 
+2020-10-09 13:58:48,175 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/css/reset.css 
+2020-10-09 13:58:48,175 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/css/print.css 
+2020-10-09 13:58:48,175 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/css/screen.css 
+2020-10-09 13:58:48,176 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 13:58:48,176 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 13:58:48,177 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 13:58:48,177 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 13:58:48,179 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 13:58:48,181 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 13:58:48,182 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 13:58:48,182 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 13:58:48,196 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 13:58:48,199 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 13:58:48,199 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 13:58:48,205 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 13:58:48,206 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 13:58:48,207 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 13:58:48,212 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 13:58:48,402 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 13:58:48,409 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/images/favicon-16x16.png 
+2020-10-09 13:58:48,418 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 13:59:48,227 [XNIO-1 I/O-5] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:49978 
+2020-10-09 13:59:48,266 [XNIO-1 I/O-5] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:49970 
+2020-10-09 13:59:48,284 [XNIO-1 I/O-3] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:49976 
+2020-10-09 13:59:48,285 [XNIO-1 I/O-7] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:49972 
+2020-10-09 13:59:48,286 [XNIO-1 I/O-7] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:49980 
+2020-10-09 13:59:48,471 [XNIO-1 I/O-1] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:49974 
+2020-10-09 14:04:13,714 [Thread-4] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:04:13,722 [Thread-4] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@6193f40e 
+2020-10-09 14:04:13,740 [Thread-4] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:04:13,743 [Thread-4] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:04:13,745 [Thread-4] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:04:13,745 [Thread-4] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:04:13,745 [Thread-4] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:04:34,554 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:04:35,277 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:04:35,567 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:04:35,614 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@5ca56458 
+2020-10-09 14:04:35,624 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:04:35,695 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:04:35,741 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:04:35,839 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:04:35,839 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:04:35,839 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:04:35,839 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:04:35,840 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:04:37,897 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:04:38,089 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/images/favicon-16x16.png 
+2020-10-09 14:04:38,105 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:05:38,215 [XNIO-1 I/O-1] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:50094 
+2020-10-09 14:05:45,862 [Thread-4] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:05:45,872 [Thread-4] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@5ca56458 
+2020-10-09 14:05:45,880 [Thread-4] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:05:45,881 [Thread-4] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:05:45,883 [Thread-4] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:05:45,883 [Thread-4] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:05:45,884 [Thread-4] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:06:04,998 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:06:05,716 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:06:05,992 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:06:06,028 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@f6249fa 
+2020-10-09 14:06:06,037 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:06:06,113 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:06:06,151 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:06:06,214 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:06:06,214 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:06:06,214 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:06:06,214 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:06:06,214 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:06:09,547 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 14:06:09,686 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 14:06:09,686 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 14:06:09,686 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 14:06:09,686 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 14:06:09,687 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 14:06:09,690 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 14:06:09,693 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 14:06:09,693 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 14:06:09,695 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 14:06:09,695 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 14:06:09,701 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 14:06:09,703 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 14:06:09,708 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 14:06:09,709 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:06:09,716 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 14:06:09,895 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 14:06:09,901 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/images/favicon-16x16.png 
+2020-10-09 14:06:09,915 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:06:17,495 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/images/throbber.gif 
+2020-10-09 14:06:17,500 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /apidefault/put 
+2020-10-09 14:06:45,751 [Thread-4] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:06:45,755 [Thread-4] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@f6249fa 
+2020-10-09 14:06:45,759 [Thread-4] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:06:45,761 [Thread-4] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:06:45,762 [Thread-4] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:06:45,763 [Thread-4] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:06:45,763 [Thread-4] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:07:05,778 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:07:06,559 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:07:06,856 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:07:06,889 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@6dd79871 
+2020-10-09 14:07:06,903 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:07:06,981 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:07:07,022 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:07:07,096 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:07:07,096 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:07:07,096 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:07:07,096 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:07:07,096 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:07:08,221 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 14:07:08,362 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 14:07:08,363 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 14:07:08,363 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 14:07:08,363 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 14:07:08,364 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 14:07:08,365 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 14:07:08,368 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 14:07:08,368 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 14:07:08,370 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 14:07:08,371 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 14:07:08,376 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 14:07:08,376 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 14:07:08,377 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 14:07:08,377 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:07:08,379 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 14:07:08,566 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 14:07:08,586 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/images/favicon-16x16.png 
+2020-10-09 14:07:08,598 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:07:17,368 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/put 
+2020-10-09 14:07:50,256 [Thread-4] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:07:50,266 [Thread-4] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@6dd79871 
+2020-10-09 14:07:50,282 [Thread-4] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:07:50,284 [Thread-4] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:07:50,286 [Thread-4] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:07:50,286 [Thread-4] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:07:50,286 [Thread-4] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:08:12,252 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:08:12,988 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:08:13,282 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:08:13,321 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@640897d0 
+2020-10-09 14:08:13,329 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:08:13,396 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:08:13,433 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:08:13,493 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:08:13,493 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:08:13,493 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:08:13,493 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:08:13,494 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:08:15,628 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 14:08:15,762 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 14:08:15,764 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 14:08:15,765 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 14:08:15,768 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 14:08:15,768 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 14:08:15,768 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 14:08:15,768 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 14:08:15,769 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 14:08:15,775 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 14:08:15,776 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 14:08:15,781 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 14:08:15,783 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 14:08:15,788 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 14:08:15,796 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 14:08:15,804 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:08:16,002 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 14:08:16,013 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/images/favicon-16x16.png 
+2020-10-09 14:08:16,029 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:08:19,339 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/put 
+2020-10-09 14:08:19,411 [XNIO-1 task-20] ERROR coup.middleware.exception - Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$39373/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val nil, :via [:spec$39373/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$39373/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message nil}}} 
+clojure.lang.ExceptionInfo: Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$39373/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val nil, :via [:spec$39373/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$39373/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message nil}}}
+	at reitit.coercion$response_coercion_failed_BANG_.invokeStatic(coercion.cljc:58) ~[na:na]
+	at reitit.coercion$response_coercion_failed_BANG_.invoke(coercion.cljc:56) ~[na:na]
+	at reitit.coercion$response_coercer$fn__32517.invoke(coercion.cljc:101) ~[na:na]
+	at reitit.coercion$coerce_response.invokeStatic(coercion.cljc:120) ~[na:na]
+	at reitit.coercion$coerce_response.invoke(coercion.cljc:117) ~[na:na]
+	at reitit.ring.coercion$fn__32965$fn__32967$fn__32968.invoke(coercion.cljc:63) ~[na:na]
+	at muuntaja.middleware$wrap_format_request$fn__35884.invoke(middleware.clj:114) ~[na:na]
+	at reitit.ring.middleware.exception$wrap$fn__37029$fn__37030.invoke(exception.clj:49) ~[na:na]
+	at muuntaja.middleware$wrap_format_response$fn__35888.invoke(middleware.clj:132) [na:na]
+	at muuntaja.middleware$wrap_format_negotiate$fn__35881.invoke(middleware.clj:96) [na:na]
+	at ring.middleware.params$wrap_params$fn__30355.invoke(params.clj:67) [na:na]
+	at reitit.ring$ring_handler$fn__32283.invoke(ring.cljc:292) [na:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:154) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:31) [clojure-1.10.1.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:408) [clojure-1.10.1.jar:na]
+	at clojure.lang.Var.invoke(Var.java:384) [clojure-1.10.1.jar:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__37358.handleRequest(undertow.clj:239) [na:na]
+	at org.projectodd.wunderboss.web.undertow.async.websocket.UndertowWebsocket$2.handleRequest(UndertowWebsocket.java:109) [wunderboss-web-undertow-0.13.1.jar:na]
+	at io.undertow.server.session.SessionAttachmentHandler.handleRequest(SessionAttachmentHandler.java:68) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:211) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:809) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_252]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_252]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_252]
+2020-10-09 14:08:48,051 [Thread-4] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:08:48,059 [Thread-4] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@640897d0 
+2020-10-09 14:08:48,072 [Thread-4] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:08:48,073 [Thread-4] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:08:48,075 [Thread-4] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:08:48,075 [Thread-4] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:08:48,076 [Thread-4] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:09:07,197 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:09:07,910 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:09:08,189 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:09:08,230 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@3f5ba876 
+2020-10-09 14:09:08,242 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:09:08,322 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:09:08,356 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:09:08,414 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:09:08,414 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:09:08,414 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:09:08,414 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:09:08,414 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:09:10,912 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 14:09:11,057 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 14:09:11,058 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 14:09:11,058 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 14:09:11,059 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 14:09:11,059 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 14:09:11,060 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 14:09:11,064 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 14:09:11,072 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 14:09:11,072 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 14:09:11,073 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 14:09:11,084 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 14:09:11,084 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 14:09:11,087 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 14:09:11,088 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 14:09:11,092 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:09:11,323 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 14:09:11,334 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/images/favicon-16x16.png 
+2020-10-09 14:09:11,350 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:09:14,123 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/put 
+2020-10-09 14:10:11,111 [XNIO-1 I/O-3] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:50168 
+2020-10-09 14:10:11,143 [XNIO-1 I/O-3] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:50160 
+2020-10-09 14:10:11,153 [XNIO-1 I/O-5] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:50162 
+2020-10-09 14:10:11,167 [XNIO-1 I/O-7] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:50164 
+2020-10-09 14:10:14,207 [XNIO-1 I/O-5] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:50170 
+2020-10-09 14:13:45,189 [Thread-4] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:13:45,196 [Thread-4] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@3f5ba876 
+2020-10-09 14:13:45,211 [Thread-4] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:13:45,214 [Thread-4] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:13:45,217 [Thread-4] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:13:45,218 [Thread-4] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:13:45,218 [Thread-4] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:17:01,863 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:17:02,615 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:17:03,751 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:17:03,779 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@50bd611e 
+2020-10-09 14:17:03,789 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:17:03,862 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:17:03,897 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:17:03,960 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:17:03,960 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:17:03,960 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:17:03,960 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:17:03,960 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:17:11,100 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 14:17:11,254 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 14:17:11,256 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 14:17:11,256 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 14:17:11,256 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 14:17:11,257 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 14:17:11,259 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 14:17:11,261 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 14:17:11,266 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 14:17:11,268 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 14:17:11,269 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 14:17:11,270 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 14:17:11,273 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 14:17:11,274 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 14:17:11,277 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 14:17:11,279 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:17:11,471 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 14:17:11,489 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:17:18,016 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/put 
+2020-10-09 14:17:24,330 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/getall 
+2020-10-09 14:17:24,755 [XNIO-1 task-20] ERROR coup.middleware.exception - Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val [{:user_id 1, :username "matthew"}], :via [:spec$41341/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message [{:user_id 1, :username "matthew"}]}}} 
+clojure.lang.ExceptionInfo: Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val [{:user_id 1, :username "matthew"}], :via [:spec$41341/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message [{:user_id 1, :username "matthew"}]}}}
+	at reitit.coercion$response_coercion_failed_BANG_.invokeStatic(coercion.cljc:58) ~[na:na]
+	at reitit.coercion$response_coercion_failed_BANG_.invoke(coercion.cljc:56) ~[na:na]
+	at reitit.coercion$response_coercer$fn__32517.invoke(coercion.cljc:101) ~[na:na]
+	at reitit.coercion$coerce_response.invokeStatic(coercion.cljc:120) ~[na:na]
+	at reitit.coercion$coerce_response.invoke(coercion.cljc:117) ~[na:na]
+	at reitit.ring.coercion$fn__32965$fn__32967$fn__32968.invoke(coercion.cljc:63) ~[na:na]
+	at muuntaja.middleware$wrap_format_request$fn__35884.invoke(middleware.clj:114) ~[na:na]
+	at reitit.ring.middleware.exception$wrap$fn__37029$fn__37030.invoke(exception.clj:49) ~[na:na]
+	at muuntaja.middleware$wrap_format_response$fn__35888.invoke(middleware.clj:132) [na:na]
+	at muuntaja.middleware$wrap_format_negotiate$fn__35881.invoke(middleware.clj:96) [na:na]
+	at ring.middleware.params$wrap_params$fn__30355.invoke(params.clj:67) [na:na]
+	at reitit.ring$ring_handler$fn__32283.invoke(ring.cljc:292) [na:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:154) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:31) [clojure-1.10.1.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:408) [clojure-1.10.1.jar:na]
+	at clojure.lang.Var.invoke(Var.java:384) [clojure-1.10.1.jar:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__39324.handleRequest(undertow.clj:239) [na:na]
+	at org.projectodd.wunderboss.web.undertow.async.websocket.UndertowWebsocket$2.handleRequest(UndertowWebsocket.java:109) [wunderboss-web-undertow-0.13.1.jar:na]
+	at io.undertow.server.session.SessionAttachmentHandler.handleRequest(SessionAttachmentHandler.java:68) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:211) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:809) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_252]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_252]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_252]
+2020-10-09 14:17:37,231 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/put 
+2020-10-09 14:17:39,512 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/getall 
+2020-10-09 14:17:39,801 [XNIO-1 task-22] ERROR coup.middleware.exception - Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}], :via [:spec$41341/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}]}}} 
+clojure.lang.ExceptionInfo: Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}], :via [:spec$41341/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}]}}}
+	at reitit.coercion$response_coercion_failed_BANG_.invokeStatic(coercion.cljc:58) ~[na:na]
+	at reitit.coercion$response_coercion_failed_BANG_.invoke(coercion.cljc:56) ~[na:na]
+	at reitit.coercion$response_coercer$fn__32517.invoke(coercion.cljc:101) ~[na:na]
+	at reitit.coercion$coerce_response.invokeStatic(coercion.cljc:120) ~[na:na]
+	at reitit.coercion$coerce_response.invoke(coercion.cljc:117) ~[na:na]
+	at reitit.ring.coercion$fn__32965$fn__32967$fn__32968.invoke(coercion.cljc:63) ~[na:na]
+	at muuntaja.middleware$wrap_format_request$fn__35884.invoke(middleware.clj:114) ~[na:na]
+	at reitit.ring.middleware.exception$wrap$fn__37029$fn__37030.invoke(exception.clj:49) ~[na:na]
+	at muuntaja.middleware$wrap_format_response$fn__35888.invoke(middleware.clj:132) [na:na]
+	at muuntaja.middleware$wrap_format_negotiate$fn__35881.invoke(middleware.clj:96) [na:na]
+	at ring.middleware.params$wrap_params$fn__30355.invoke(params.clj:67) [na:na]
+	at reitit.ring$ring_handler$fn__32283.invoke(ring.cljc:292) [na:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:154) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:31) [clojure-1.10.1.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:408) [clojure-1.10.1.jar:na]
+	at clojure.lang.Var.invoke(Var.java:384) [clojure-1.10.1.jar:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__39324.handleRequest(undertow.clj:239) [na:na]
+	at org.projectodd.wunderboss.web.undertow.async.websocket.UndertowWebsocket$2.handleRequest(UndertowWebsocket.java:109) [wunderboss-web-undertow-0.13.1.jar:na]
+	at io.undertow.server.session.SessionAttachmentHandler.handleRequest(SessionAttachmentHandler.java:68) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:211) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:809) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_252]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_252]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_252]
+2020-10-09 14:17:42,299 [Thread-5] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:17:42,308 [Thread-5] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@50bd611e 
+2020-10-09 14:17:42,316 [Thread-5] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:17:42,318 [Thread-5] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:17:42,320 [Thread-5] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:17:42,321 [Thread-5] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:17:42,321 [Thread-5] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:18:02,371 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:18:03,105 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:18:06,508 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:18:06,537 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@595c2f7f 
+2020-10-09 14:18:06,547 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:18:06,619 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:18:06,663 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:18:06,733 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:18:06,733 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:18:06,733 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:18:06,733 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:18:06,733 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:18:07,703 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/getall 
+2020-10-09 14:18:08,279 [XNIO-1 task-1] ERROR coup.middleware.exception - Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}], :via [:spec$41341/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}]}}} 
+clojure.lang.ExceptionInfo: Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}], :via [:spec$41341/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}]}}}
+	at reitit.coercion$response_coercion_failed_BANG_.invokeStatic(coercion.cljc:58) ~[na:na]
+	at reitit.coercion$response_coercion_failed_BANG_.invoke(coercion.cljc:56) ~[na:na]
+	at reitit.coercion$response_coercer$fn__32517.invoke(coercion.cljc:101) ~[na:na]
+	at reitit.coercion$coerce_response.invokeStatic(coercion.cljc:120) ~[na:na]
+	at reitit.coercion$coerce_response.invoke(coercion.cljc:117) ~[na:na]
+	at reitit.ring.coercion$fn__32965$fn__32967$fn__32968.invoke(coercion.cljc:63) ~[na:na]
+	at muuntaja.middleware$wrap_format_request$fn__35884.invoke(middleware.clj:114) ~[na:na]
+	at reitit.ring.middleware.exception$wrap$fn__37029$fn__37030.invoke(exception.clj:49) ~[na:na]
+	at muuntaja.middleware$wrap_format_response$fn__35888.invoke(middleware.clj:132) [na:na]
+	at muuntaja.middleware$wrap_format_negotiate$fn__35881.invoke(middleware.clj:96) [na:na]
+	at ring.middleware.params$wrap_params$fn__30355.invoke(params.clj:67) [na:na]
+	at reitit.ring$ring_handler$fn__32283.invoke(ring.cljc:292) [na:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:154) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:31) [clojure-1.10.1.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:408) [clojure-1.10.1.jar:na]
+	at clojure.lang.Var.invoke(Var.java:384) [clojure-1.10.1.jar:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__39324.handleRequest(undertow.clj:239) [na:na]
+	at org.projectodd.wunderboss.web.undertow.async.websocket.UndertowWebsocket$2.handleRequest(UndertowWebsocket.java:109) [wunderboss-web-undertow-0.13.1.jar:na]
+	at io.undertow.server.session.SessionAttachmentHandler.handleRequest(SessionAttachmentHandler.java:68) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:211) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:809) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_252]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_252]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_252]
+2020-10-09 14:19:08,388 [XNIO-1 I/O-3] DEBUG io.undertow.request - Timing out idle connection from /127.0.0.1:50336 
+2020-10-09 14:19:21,513 [Thread-5] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:19:21,518 [Thread-5] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@595c2f7f 
+2020-10-09 14:19:21,521 [Thread-5] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:19:21,522 [Thread-5] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:19:21,523 [Thread-5] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:19:21,523 [Thread-5] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:19:21,524 [Thread-5] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:19:45,595 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:19:46,339 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:19:48,854 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:19:48,895 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@d8b9bbd 
+2020-10-09 14:19:48,905 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:19:49,024 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:19:49,071 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:19:49,156 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:19:49,156 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:19:49,157 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:19:49,157 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:19:49,157 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:19:53,402 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path / 
+2020-10-09 14:19:53,467 [XNIO-1 task-1] DEBUG io.undertow.session - Created session with id TeN6ORyI62SooaY_mhvMKDK4e_Qstk1lkTu2V1xF for exchange HttpServerExchange{ GET / request {Accept=[text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8], Connection=[keep-alive], Accept-Language=[en-US,en;q=0.5], Accept-Encoding=[gzip, deflate], Cookie=[JSESSIONID=TeN6ORyI62SooaY_mhvMKDK4e_Qstk1lkTu2V1xF], User-Agent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:80.0) Gecko/20100101 Firefox/80.0], Upgrade-Insecure-Requests=[1], Host=[localhost:3030]} response {Server=[undertow]}} 
+2020-10-09 14:19:53,572 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /js/app.js 
+2020-10-09 14:19:53,572 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /assets/font-awesome/css/all.min.css 
+2020-10-09 14:19:53,572 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /css/style.css 
+2020-10-09 14:20:01,152 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs 
+2020-10-09 14:20:01,289 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:20:01,462 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:20:13,702 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/get-all-users 
+2020-10-09 14:20:14,281 [XNIO-1 task-8] ERROR coup.middleware.exception - Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}], :via [:spec$41341/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}]}}} 
+clojure.lang.ExceptionInfo: Response coercion failed: #reitit.coercion.CoercionError{:spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :problems {:clojure.spec.alpha/problems ({:path [:message], :pred clojure.core/string?, :val [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}], :via [:spec$41341/message], :in [:message]}), :clojure.spec.alpha/spec #Spec{:form (clojure.spec.alpha/keys :req-un [:spec$41341/message]), :type :map, :leaf? false}, :clojure.spec.alpha/value {:message [{:user_id 1, :username "matthew"} {:user_id 2, :username "will"}]}}}
+	at reitit.coercion$response_coercion_failed_BANG_.invokeStatic(coercion.cljc:58) ~[na:na]
+	at reitit.coercion$response_coercion_failed_BANG_.invoke(coercion.cljc:56) ~[na:na]
+	at reitit.coercion$response_coercer$fn__32517.invoke(coercion.cljc:101) ~[na:na]
+	at reitit.coercion$coerce_response.invokeStatic(coercion.cljc:120) ~[na:na]
+	at reitit.coercion$coerce_response.invoke(coercion.cljc:117) ~[na:na]
+	at reitit.ring.coercion$fn__32965$fn__32967$fn__32968.invoke(coercion.cljc:63) ~[na:na]
+	at muuntaja.middleware$wrap_format_request$fn__35884.invoke(middleware.clj:114) ~[na:na]
+	at reitit.ring.middleware.exception$wrap$fn__37029$fn__37030.invoke(exception.clj:49) ~[na:na]
+	at muuntaja.middleware$wrap_format_response$fn__35888.invoke(middleware.clj:132) [na:na]
+	at muuntaja.middleware$wrap_format_negotiate$fn__35881.invoke(middleware.clj:96) [na:na]
+	at ring.middleware.params$wrap_params$fn__30355.invoke(params.clj:67) [na:na]
+	at reitit.ring$ring_handler$fn__32283.invoke(ring.cljc:292) [na:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:154) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.10.1.jar:na]
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:31) [clojure-1.10.1.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:408) [clojure-1.10.1.jar:na]
+	at clojure.lang.Var.invoke(Var.java:384) [clojure-1.10.1.jar:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__39324.handleRequest(undertow.clj:239) [na:na]
+	at org.projectodd.wunderboss.web.undertow.async.websocket.UndertowWebsocket$2.handleRequest(UndertowWebsocket.java:109) [wunderboss-web-undertow-0.13.1.jar:na]
+	at io.undertow.server.session.SessionAttachmentHandler.handleRequest(SessionAttachmentHandler.java:68) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:211) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:809) [undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_252]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_252]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_252]
+2020-10-09 14:20:47,773 [Thread-5] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:20:47,780 [Thread-5] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@d8b9bbd 
+2020-10-09 14:20:47,789 [Thread-5] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:20:47,790 [Thread-5] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:20:47,791 [Thread-5] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:20:47,792 [Thread-5] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:20:47,792 [Thread-5] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:21:39,489 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:21:40,270 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:21:43,657 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:21:43,690 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@d8b9bbd 
+2020-10-09 14:21:43,699 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:21:43,776 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:21:43,810 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:21:43,884 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:21:43,884 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:21:43,884 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:21:43,884 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:21:43,884 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:21:47,457 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/ 
+2020-10-09 14:21:47,565 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 14:21:47,657 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 14:21:47,657 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 14:21:47,657 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 14:21:47,658 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 14:21:47,662 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 14:21:47,662 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:21:47,662 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 14:21:47,668 [XNIO-1 task-4] DEBUG io.undertow.request.io - Fixed length stream closed with with 75648 bytes remaining 
+2020-10-09 14:21:47,682 [XNIO-1 task-4] DEBUG io.undertow.request.io - UT005013: An IOException occurred 
+java.io.IOException: Broken pipe
+	at sun.nio.ch.FileDispatcherImpl.writev0(Native Method) ~[na:1.8.0_252]
+	at sun.nio.ch.SocketDispatcher.writev(SocketDispatcher.java:51) ~[na:1.8.0_252]
+	at sun.nio.ch.IOUtil.write(IOUtil.java:148) ~[na:1.8.0_252]
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:501) ~[na:1.8.0_252]
+	at org.xnio.nio.NioSocketConduit.write(NioSocketConduit.java:161) ~[xnio-nio-3.3.6.Final.jar:3.3.6.Final]
+	at io.undertow.server.protocol.http.HttpResponseConduit.write(HttpResponseConduit.java:645) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.conduits.AbstractFixedLengthStreamSinkConduit.write(AbstractFixedLengthStreamSinkConduit.java:148) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at org.xnio.conduits.ConduitStreamSinkChannel.write(ConduitStreamSinkChannel.java:158) ~[xnio-api-3.3.6.Final.jar:3.3.6.Final]
+	at io.undertow.channels.DetachableStreamSinkChannel.write(DetachableStreamSinkChannel.java:179) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$WriteDispatchChannel.write(HttpServerExchange.java:2014) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at org.xnio.channels.Channels.writeBlocking(Channels.java:152) ~[xnio-api-3.3.6.Final.jar:3.3.6.Final]
+	at io.undertow.io.UndertowOutputStream.write(UndertowOutputStream.java:161) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at clojure.java.io$fn__11530.invokeStatic(io.clj:307) ~[clojure-1.10.1.jar:na]
+	at clojure.java.io$fn__11530.invoke(io.clj:302) ~[clojure-1.10.1.jar:na]
+	at clojure.lang.MultiFn.invoke(MultiFn.java:239) ~[clojure-1.10.1.jar:na]
+	at clojure.java.io$copy.invokeStatic(io.clj:406) ~[clojure-1.10.1.jar:na]
+	at clojure.java.io$copy.doInvoke(io.clj:391) ~[clojure-1.10.1.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) ~[clojure-1.10.1.jar:na]
+	at immutant.web.internal.ring$eval28814$fn__28815.invoke(ring.clj:140) ~[na:na]
+	at clojure.lang.MultiFn.invoke(MultiFn.java:239) ~[clojure-1.10.1.jar:na]
+	at immutant.web.internal.undertow$eval39249$fn__39287$action__39288.invoke(undertow.clj:159) ~[na:na]
+	at immutant.web.internal.undertow$eval39249$fn__39287.invoke(undertow.clj:172) ~[na:na]
+	at immutant.web.internal.ring$eval28724$fn__28747$G__28713__28758.invoke(ring.clj:106) ~[na:na]
+	at immutant.web.internal.ring$write_response.invokeStatic(ring.clj:164) ~[na:na]
+	at immutant.web.internal.ring$write_response.invoke(ring.clj:157) ~[na:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__39327$fn__39328.invoke(undertow.clj:241) ~[na:na]
+	at immutant.web.internal.ring$handle_write_error.invokeStatic(ring.clj:155) ~[na:na]
+	at immutant.web.internal.ring$handle_write_error.invoke(ring.clj:142) ~[na:na]
+	at immutant.web.internal.undertow$create_http_handler$reify__39327.handleRequest(undertow.clj:240) ~[na:na]
+	at org.projectodd.wunderboss.web.undertow.async.websocket.UndertowWebsocket$2.handleRequest(UndertowWebsocket.java:109) ~[wunderboss-web-undertow-0.13.1.jar:na]
+	at io.undertow.server.session.SessionAttachmentHandler.handleRequest(SessionAttachmentHandler.java:68) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:211) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:809) ~[undertow-core-1.4.14.Final.jar:1.4.14.Final]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_252]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_252]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_252]
+2020-10-09 14:21:47,866 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:21:51,761 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/get-all-users 
+2020-10-09 14:22:14,461 [Thread-5] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:22:14,464 [Thread-5] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@d8b9bbd 
+2020-10-09 14:22:14,469 [Thread-5] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:22:14,470 [Thread-5] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:22:14,471 [Thread-5] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:22:14,471 [Thread-5] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:22:14,471 [Thread-5] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:22:34,792 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:22:35,584 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:22:37,482 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:22:37,516 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@35946da7 
+2020-10-09 14:22:37,528 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:22:37,618 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:22:37,666 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:22:37,761 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:22:37,761 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:22:37,761 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:22:37,761 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:22:37,762 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:22:47,271 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 14:22:47,421 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/css/typography.css 
+2020-10-09 14:22:47,421 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/css/reset.css 
+2020-10-09 14:22:47,421 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/css/screen.css 
+2020-10-09 14:22:47,422 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 14:22:47,422 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/css/print.css 
+2020-10-09 14:22:47,422 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 14:22:47,449 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 14:22:47,452 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 14:22:47,452 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 14:22:47,453 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 14:22:47,463 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 14:22:47,463 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 14:22:47,464 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 14:22:47,465 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 14:22:47,469 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 14:22:47,471 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 14:22:47,472 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 14:22:47,485 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:22:47,491 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 14:22:47,648 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 14:22:47,655 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/images/favicon-16x16.png 
+2020-10-09 14:22:47,665 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:22:55,186 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/images/throbber.gif 
+2020-10-09 14:22:55,192 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/create-user 
+2020-10-09 14:23:00,610 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/get-all-users 
+2020-10-09 14:23:11,598 [Thread-5] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:23:11,607 [Thread-5] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@35946da7 
+2020-10-09 14:23:11,617 [Thread-5] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:23:11,619 [Thread-5] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:23:11,621 [Thread-5] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:23:11,622 [Thread-5] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:23:11,622 [Thread-5] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:23:33,283 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:23:34,117 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:23:36,624 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:23:36,657 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@56e52961 
+2020-10-09 14:23:36,668 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:23:36,754 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:23:36,796 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:23:36,889 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:23:36,889 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:23:36,889 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:23:36,889 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:23:36,890 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:24:29,162 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs 
+2020-10-09 14:24:29,337 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:24:29,521 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:24:34,113 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/create-user 
+2020-10-09 14:24:38,038 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/get-all-users 
+2020-10-09 14:24:51,960 [Thread-5] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:24:51,968 [Thread-5] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@56e52961 
+2020-10-09 14:24:51,977 [Thread-5] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:24:51,978 [Thread-5] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:24:51,979 [Thread-5] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:24:51,980 [Thread-5] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:24:51,980 [Thread-5] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:25:12,400 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:25:13,114 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:25:15,375 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:25:15,408 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@23bc71f3 
+2020-10-09 14:25:15,417 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:25:15,484 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:25:15,521 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:25:15,590 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:25:15,590 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:25:15,590 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:25:15,590 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:25:15,591 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:25:16,647 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/index.html 
+2020-10-09 14:25:16,802 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery-1.8.0.min.js 
+2020-10-09 14:25:16,802 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/object-assign-pollyfill.js 
+2020-10-09 14:25:16,802 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.wiggle.min.js 
+2020-10-09 14:25:16,802 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.ba-bbq.min.js 
+2020-10-09 14:25:16,802 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jquery.slideto.min.js 
+2020-10-09 14:25:16,803 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/handlebars-4.0.5.js 
+2020-10-09 14:25:16,811 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/lodash.min.js 
+2020-10-09 14:25:16,811 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/backbone-min.js 
+2020-10-09 14:25:16,812 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/swagger-ui.js 
+2020-10-09 14:25:16,812 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack.js 
+2020-10-09 14:25:16,821 [XNIO-1 I/O-5] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/swagger-oauth.js 
+2020-10-09 14:25:16,821 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/jsoneditor.min.js 
+2020-10-09 14:25:16,822 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/marked.js 
+2020-10-09 14:25:16,825 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:25:16,845 [XNIO-1 I/O-7] DEBUG io.undertow.request - Matched default handler path /api/docs/lib/highlight.9.1.0.pack_extended.js 
+2020-10-09 14:25:17,002 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/docs/images/logo_small.png 
+2020-10-09 14:25:17,025 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:25:22,123 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/create-user 
+2020-10-09 14:25:25,808 [XNIO-1 I/O-1] DEBUG io.undertow.request - Matched default handler path /api/get-all-users 
+2020-10-09 14:25:31,996 [Thread-5] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:25:32,003 [Thread-5] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@23bc71f3 
+2020-10-09 14:25:32,016 [Thread-5] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:25:32,017 [Thread-5] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:25:32,018 [Thread-5] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:25:32,019 [Thread-5] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:25:32,019 [Thread-5] INFO  coup.core - #'coup.handler/init-app stopped 
+2020-10-09 14:27:54,118 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider 
+2020-10-09 14:27:54,878 [main] INFO  coup.env - 
+-=[coup started successfully using the development profile]=- 
+2020-10-09 14:27:56,846 [main] INFO  luminus.http-server - starting HTTP server on port 3030 
+2020-10-09 14:27:56,885 [main] DEBUG io.undertow - starting undertow server io.undertow.Undertow@56e52961 
+2020-10-09 14:27:56,896 [main] INFO  org.xnio - XNIO version 3.3.6.Final 
+2020-10-09 14:27:56,969 [main] DEBUG io.undertow - Configuring listener with protocol HTTP for interface 127.0.0.1 and port 3030 
+2020-10-09 14:27:57,012 [main] INFO  org.projectodd.wunderboss.web.Web - Registered web context / 
+2020-10-09 14:27:57,077 [main] INFO  coup.core - #'coup.config/env started 
+2020-10-09 14:27:57,078 [main] INFO  coup.core - #'coup.handler/init-app started 
+2020-10-09 14:27:57,078 [main] INFO  coup.core - #'coup.handler/app started 
+2020-10-09 14:27:57,078 [main] INFO  coup.core - #'coup.core/http-server started 
+2020-10-09 14:27:57,078 [main] INFO  coup.core - #'user/garden started 
+2020-10-09 14:28:08,169 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs 
+2020-10-09 14:28:08,337 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/docs/conf.js 
+2020-10-09 14:28:08,546 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/swagger.json 
+2020-10-09 14:28:12,486 [XNIO-1 I/O-3] DEBUG io.undertow.request - Matched default handler path /api/get-all-users 
+2020-10-09 14:28:16,148 [Thread-5] DEBUG org.projectodd.wunderboss.WunderBoss - Returning existing component for org.projectodd.wunderboss.web.Web:-1823651345, ignoring options. 
+2020-10-09 14:28:16,155 [Thread-5] DEBUG io.undertow - stopping undertow server io.undertow.Undertow@56e52961 
+2020-10-09 14:28:16,165 [Thread-5] INFO  luminus.http-server - HTTP server stopped 
+2020-10-09 14:28:16,167 [Thread-5] INFO  coup.env - 
+-=[coup has shut down successfully]=- 
+2020-10-09 14:28:16,170 [Thread-5] INFO  coup.core - #'user/garden stopped 
+2020-10-09 14:28:16,171 [Thread-5] INFO  coup.core - #'coup.core/http-server stopped 
+2020-10-09 14:28:16,171 [Thread-5] INFO  coup.core - #'coup.handler/init-app stopped 
