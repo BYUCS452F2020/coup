@@ -24,8 +24,8 @@
   (init)
   (nrepl/start-server :port 7888)
   (println "started")
-  (let [x (read-user)]
-    (create-user x))
+  ;(let [x (read-user)]
+  ;  (signup-login x))
   (prn (select-all))
   ;(game-loop))
   #_(System/exit 0))
