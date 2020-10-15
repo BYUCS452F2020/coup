@@ -94,11 +94,23 @@
 (defn refresh [] 
   (jdbc/execute! ds
     ["drop table user;
-      drop table player;
-      drop table game;
-      drop table deck"])
+     drop table player;
+     drop table game;
+     drop table deck"])
   (init))
 
+(defn get-roles [player_id]
+  (->>
+    (jdbc/execute! ds
+      ["select role_1, role_2
+       from player
+       where player_id = ?" player_id]
+      opt)
+    first
+    vals))
+
+;(get-roles 1)
+;(select-all "player")
 ;(refresh)
 ;(create-game)
 ;(select-all)
@@ -122,7 +134,7 @@
 ; See your cards
 ; Abilities
 
-(def roles ["am" "as" "ca" "co" "du"])
+(def roles [:am :as :ca :co :du])
 
 (defn deal [n-players]
   (let [deck (->> roles
@@ -140,21 +152,40 @@
              )]
   [player-cards deck]))
 
-;(deal 3)
 
 (defn init-game [users]
   (let [user_ids (map signup-login users)
         game_id (create-game)
-        [player-cards deck] (deal (count users))]
-    (doseq [[[i u_id] role] (map list (map-indexed vector user_ids) player-cards)]
-      (create-player u_id game_id i (first role) (last role)))
+        [player-cards deck] (deal (count users))
+        player_ids (for [[[i u_id] role] (map list (map-indexed vector user_ids) player-cards)]
+                     (apply create-player u_id game_id i (map name role)))]
     (apply create-deck game_id (vals deck))
+    {:game_id game_id :player_ids player_ids}
     ))
 
-#_(defn receive-action [username action]
-  (case action))
+;actions: coup, income, foreign aid, exchange, assassinate, steal, tax
+;reactions: block stealing, block assassination, block foreign aid
 
+(def actions {:un [:cou :inc :aid]
+              :am [:exc :bls]
+              :as [:ass]
+              :ca [:ste :bls]
+              :co [:bla]})
+
+(defn receive-action [player_id action]
+  (let [roles (concat (map keyword (get-roles player_id)) [:un])
+        acts (set (flatten (vals (select-keys actions roles))))]
+    (if (contains? acts action)
+      (println "we can do that")
+      (println "we can't do that")
+      )))
+
+;(keyword "stiff")
+;(concat (map key (get-roles 1)) [:un])
+;(receive-action 1 :bla)
+;(refresh)
 ;(init-game ["test1" "test2" "test3"])
+;(pprint (select-all "player"))
 
 ;-------------------------------------------------------------------
 ; End Services Layer
