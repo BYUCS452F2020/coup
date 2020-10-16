@@ -21,8 +21,8 @@
     (read-line)))
 
 (defn run-cli []
-  (init)
-  (nrepl/start-server :port 7888)
+  ; (init)
+  ; (nrepl/start-server :port 7888)
   (println "started")
   ;(let [x (read-user)]
   ;  (signup-login x))

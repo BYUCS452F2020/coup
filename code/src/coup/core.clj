@@ -8,6 +8,4 @@
   (nrepl/start-server :port 7888)
   (println "repl started")
   (init)
-  #_(run-cli))
-
-
+  (run-cli))

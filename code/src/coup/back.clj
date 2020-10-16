@@ -71,7 +71,7 @@
   (jdbc/execute! ds
     ["select * from user where username = ?" x]))
 
-(defn create-game [] 
+(defn create-game []
   (strip-id
     (jdbc/execute! ds
       ["insert into game (turn) values (0)"]
@@ -91,7 +91,7 @@
       values (?, ?, ?, ?, ?, ?)" game_id n_am n_as n_ca n_co n_du]
       opt)))
 
-(defn refresh [] 
+(defn refresh []
   (jdbc/execute! ds
     ["drop table user;
      drop table player;
@@ -108,6 +108,20 @@
       opt)
     first
     vals))
+
+(defn get-player [player_id]
+  (jdbc/execute! ds
+      ["select *
+       from player
+       where player_id = ?" player_id]))
+
+(defn get-current-turn-player [game_id]
+  (jdbc/execute! ds
+      ["select player.*
+       from player
+       where turn_order in
+       (select turn from game
+        where game_id = ?)" game_id]))
 
 ;(get-roles 1)
 ;(select-all "player")
@@ -142,14 +156,14 @@
                        (repeat 3 role)))
              shuffle)
 
-      player-cards (->> deck
-                     (partition 2)
-                     (take n-players))
-      deck (->> deck
-             (drop (* 2 n-players))
-             frequencies
-             (merge (reduce (fn [x y] (merge x {y 0})) {} roles))
-             )]
+        player-cards (->> deck
+                       (partition 2)
+                       (take n-players))
+        deck (->> deck
+               (drop (* 2 n-players))
+               frequencies
+               (merge (reduce (fn [x y] (merge x {y 0})) {} roles))
+               )]
   [player-cards deck]))
 
 
@@ -180,6 +194,13 @@
       (println "we can't do that")
       )))
 
+; untested
+(defn is-turn [player_id]
+  (let [player_res (get-player player_id)]
+    (and
+      (= 1 (count player_res))
+      (= (:player_id (first player_res))
+         (:player_id (get-current-turn-player)))))))
 ;(keyword "stiff")
 ;(concat (map key (get-roles 1)) [:un])
 ;(receive-action 1 :bla)
