@@ -52,15 +52,15 @@
 
 (defn signup-login [username]
   (let [user_id (:user_id (first (jdbc/execute! ds
-      ["select user_id from user
-        where username = ?" username]
-      {:return-keys true :builder-fn rs/as-unqualified-lower-maps})))]
+                                   ["select user_id from user
+                                     where username = ?" username]
+                                   {:return-keys true :builder-fn rs/as-unqualified-lower-maps})))]
 
-  (if user_id
-    user_id
-    (:user_id (first (jdbc/execute! ds
-      ["insert into user (username) values (?)" username]
-      {:return-keys true :builder-fn rs/as-unqualified-lower-maps}))))))
+    (if user_id
+      user_id
+      (:user_id (first (jdbc/execute! ds
+        ["insert into user (username) values (?)" username]
+        {:return-keys true :builder-fn rs/as-unqualified-lower-maps}))))))
 
 (defn select-all [table]
   (jdbc/execute! ds
@@ -200,7 +200,7 @@
     (and
       (= 1 (count player_res))
       (= (:player_id (first player_res))
-         (:player_id (get-current-turn-player)))))))
+         (:player_id (get-current-turn-player))))))
 ;(keyword "stiff")
 ;(concat (map key (get-roles 1)) [:un])
 ;(receive-action 1 :bla)

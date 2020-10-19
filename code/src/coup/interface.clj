@@ -24,11 +24,11 @@
   ; (init)
   ; (nrepl/start-server :port 7888)
   (println "started")
-  ;(let [x (read-user)]
-  ;  (signup-login x))
-  (prn (select-all))
-  ;(game-loop))
-  #_(System/exit 0))
+  (let [x (read-user)]
+   (signup-login x))
+  (prn (select-all "user"))
+  (game-loop)
+  (System/exit 0))
 
 (comment
   ; Run t clean in terminal to clear database
