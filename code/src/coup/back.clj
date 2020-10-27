@@ -21,7 +21,7 @@
 (defn init []
   (jdbc/execute! ds ["create table if not exists user (
                         user_id int auto_increment primary key,
-                        username varchar(32)
+                        username varchar(32) unique
                         )"])
   (jdbc/execute! ds ["create table if not exists player (
                         player_id int auto_increment primary key,
@@ -50,7 +50,9 @@
 (defn strip-id [thing]
   (first (vals (first thing))))
 
-(defn signup-login [username]
+(defn signup-login
+  "If user with username does not exist in database, creates user"
+  [username]
   (let [user_id (:user_id (first (jdbc/execute! ds
                                    ["select user_id from user
                                      where username = ?" username]
@@ -115,13 +117,20 @@
        from player
        where player_id = ?" player_id]))
 
+(defn get-player-by-username [username]
+  (jdbc/execute! ds
+      ["select *
+       from player
+       where username = ?" username]))
+
 (defn get-current-turn-player [game_id]
+  (println "in get-current-turn-player with " game_id)
   (jdbc/execute! ds
       ["select player.*
        from player
-       where turn_order in
-       (select turn from game
-        where game_id = ?)" game_id]))
+       join game on player.game_id = game.game_id
+       where player.turn_order = game.turn
+       and game.game_id = ?" game_id]))
 
 ;(get-roles 1)
 ;(select-all "player")
@@ -168,7 +177,8 @@
 
 
 (defn init-game [users]
-  (let [user_ids (map signup-login users)
+  (println "recieved users: " users)
+  (let [user_ids (doall (map signup-login users))
         game_id (create-game)
         [player-cards deck] (deal (count users))
         player_ids (for [[[i u_id] role] (map list (map-indexed vector user_ids) player-cards)]
@@ -176,6 +186,12 @@
     (apply create-deck game_id (vals deck))
     {:game_id game_id :player_ids player_ids}
     ))
+
+(defn get-player-id [username]
+  (let [res (get-player-by-username username)]
+    (if (empty? res)
+        ""
+        (:player-id (first res)))))
 
 ;actions: coup, income, foreign aid, exchange, assassinate, steal, tax
 ;reactions: block stealing, block assassination, block foreign aid
@@ -186,21 +202,46 @@
               :ca [:ste :bls]
               :co [:bla]})
 
-(defn receive-action [player_id action]
-  (let [roles (concat (map keyword (get-roles player_id)) [:un])
-        acts (set (flatten (vals (select-keys actions roles))))]
-    (if (contains? acts action)
-      (println "we can do that")
-      (println "we can't do that")
-      )))
+(def str-to-action
+  {"coup" :cou
+   "income" :inc
+   "foreign-aid" :aid
+   "exchange" :exc
+   "assassinate" :ass
+   "steal" :ste
+   "tax" :tax
+   "block-stealing" :bls
+   "block-assassination" :bla
+   "block-foreign-aid" :blf})
+
 
 ; untested
 (defn is-turn [player_id]
   (let [player_res (get-player player_id)]
-    (and
-      (= 1 (count player_res))
-      (= (:player_id (first player_res))
-         (:player_id (get-current-turn-player))))))
+    (if (= 0 (count player_res))
+      false
+      (do
+       (let [current-turn-player (first (get-current-turn-player (:player/game_id (first player_res))))
+             current-turn-player-id (:player/player_id current-turn-player)]
+         (= (str player_id) (str current-turn-player-id)))))))
+
+(defn receive-action
+  ([player_id action]
+   (let [roles (concat (map keyword (get-roles player_id)) [:un])
+         acts (set (flatten (vals (select-keys actions roles))))
+         trash (println acts)]
+     (if (not (is-turn player_id))
+            (println "it's not your turn!")
+            (if (contains? acts action)
+              (println "we can do that")
+              (println "we can't do that")))))
+   ([args]  ; must have 2 elements in args: player-id and action string
+    (if (not (= 2 (count args)))
+        (println "invalid command")
+        (receive-action (get args 0) (str-to-action (get args 1))))))
+
+
+
 ;(keyword "stiff")
 ;(concat (map key (get-roles 1)) [:un])
 ;(receive-action 1 :bla)

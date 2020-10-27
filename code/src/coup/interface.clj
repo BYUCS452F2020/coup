@@ -1,7 +1,8 @@
 (ns coup.interface
   (:require
     [nrepl.server :as nrepl]
-    [coup.back :refer :all]))
+    [coup.back :refer :all]
+    [clojure.string :as str]))
 
 
 
@@ -9,10 +10,22 @@
 ; Front-End Layer
 ;=-----------------------------------------------------------------
 
+(defn parse-action
+  "Gets first 2 space separated values from string"
+  [line]
+  (let [split-line (str/split line #" ")]
+    (if (= 2 (count split-line))
+      split-line
+      '[])))
+
 (defn game-loop []
-  (if nil
-    (recur)
-    (println "done")))
+  (println "enter command")
+  (let [line (read-line)]
+    (if (not (= "exit" line))
+      (do
+        (receive-action (parse-action line))
+        (recur))
+      (println "done"))))
 
 (defn read-user []
   (do
@@ -20,15 +33,36 @@
     (flush)
     (read-line)))
 
+(defn get-usernames
+  "Reads in list of usernames from stdin, terminated by word 'done'"
+  ([gathered-names]
+   (let [new-username (read-user)]
+     (if (= "done" new-username)
+       gathered-names
+       (get-usernames (conj gathered-names new-username)))))
+  ([]
+   (get-usernames '[])))
+
+(defn print-instructions []
+  (println "Welcome to Coup!")
+  (println "At any point, type exit to quit."))
+
+
 (defn run-cli []
   ; (init)
   ; (nrepl/start-server :port 7888)
-  (println "started")
-  (let [x (read-user)]
-   (signup-login x))
+
+  ; print instructions
+  (print-instructions)
+
+  ; read in users for game
+  (let [usernames (get-usernames)]
+    (println (init-game usernames)))
+   ; (signup-login x))
   (prn (select-all "user"))
   (game-loop)
   (System/exit 0))
+
 
 (comment
   ; Run t clean in terminal to clear database
