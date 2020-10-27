@@ -58,8 +58,8 @@
     (if user_id
       user_id
       (:user_id (first (jdbc/execute! ds
-        ["insert into user (username) values (?)" username]
-        {:return-keys true :builder-fn rs/as-unqualified-lower-maps}))))))
+                         ["insert into user (username) values (?)" username]
+                         {:return-keys true :builder-fn rs/as-unqualified-lower-maps}))))))
 
 (defn select-all [table]
   (jdbc/execute! ds
@@ -150,3 +150,17 @@
       ["update player
        set role_2 = ?
        where player_id = ?" EMPTY-ROLE player-id])))
+
+(defn set-turn [game-id new-turn]
+  (jdbc/execute! ds
+    ["update game
+     set turn = ?
+     where game_id = ?" new-turn game-id]))
+
+(defn get-game-by-player [player-id]
+  (jdbc/execute! ds
+    ["select game.*, count(other_player.*) as num_players
+     from game
+     join player on player.game_id = game.game_id
+     join player as other_player on player.game_id = other_player.game_id
+     where player.player_id = ?" player-id]))

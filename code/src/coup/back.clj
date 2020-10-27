@@ -55,7 +55,7 @@
 
 
 (defn init-game [users]
-  (println "recieved users: " users)
+  (println "received users: " users)
   (let [user_ids (doall (map signup-login users))
         game_id (create-game)
         [player-cards deck] (deal (count users))
@@ -112,6 +112,14 @@
              current-turn-player-id (:player/player_id current-turn-player)]
          (= (str player_id) (str current-turn-player-id)))))))
 
+(defn increment-turn [player-id]
+  (let [game (first (get-game-by-player player-id))
+        trash (println game)
+        game-id (:game/game_id game)
+        current-turn (:game/turn game)
+        num-players (:num_players game)]
+    (set-turn game-id (mod (+ current-turn 1) num-players))))
+
 (defn receive-action
   [args]
   (if (> 2 (count args))
@@ -126,7 +134,9 @@
       (if (not (is-turn player_id))
         (println "it's not your turn!")
         (if (contains? acts action)
-          ((action action-handlers) args)
+          (do
+            ((action action-handlers) args)
+            (increment-turn (get args 0)))
           (println "we can't do that"))))))
 
 
