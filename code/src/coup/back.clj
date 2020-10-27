@@ -39,9 +39,9 @@
 
 (defn deal [n-players]
   (let [deck (->> roles
-             (mapcat (fn [role]
-                       (repeat 3 role)))
-             shuffle)
+               (mapcat (fn [role]
+                         (repeat 3 role)))
+               shuffle)
 
         player-cards (->> deck
                        (partition 2)
@@ -49,9 +49,9 @@
         deck (->> deck
                (drop (* 2 n-players))
                frequencies
-               (merge (reduce (fn [x y] (merge x {y 0})) {} roles))
-               )]
-  [player-cards deck]))
+               (merge (reduce (fn [x y] (merge x {y 0})) {} roles)))]
+
+    [player-cards deck]))
 
 
 (defn init-game [users]
@@ -62,8 +62,8 @@
         player_ids (for [[[i u_id] role] (map list (map-indexed vector user_ids) player-cards)]
                      (apply create-player u_id game_id i (map name role)))]
     (apply create-deck game_id (vals deck))
-    {:game_id game_id :player_ids player_ids}
-    ))
+    {:game_id game_id :player_ids player_ids}))
+
 
 (defn get-player-id [username]
   (let [res (get-player-by-username username)]
@@ -78,7 +78,8 @@
               :am [:exc :bls]
               :as [:ass]
               :ca [:ste :bls]
-              :co [:bla]})
+              :co [:bla]
+              :du [:tax :blf]})  ; blf == block foreign-aid
 
 (def str-to-action
   {"coup" :cou
@@ -87,7 +88,7 @@
    "exchange" :exc
    "assassinate" :ass
    "steal" :ste
-   "tax" :tax
+   "tax" :tax  ; is this the Duke's action of taking 3 coins?
    "block-stealing" :bls
    "block-assassination" :bla
    "block-foreign-aid" :blf})
@@ -95,7 +96,11 @@
 (def action-handlers
   {:inc income
    :aid foreign-aid
-   :cou coup})
+   :cou coup
+   :exc exchange-draw
+   :ass assassinate
+   :ste steal
+   :tax tax})
 
 ; untested
 (defn is-turn [player_id]
@@ -114,8 +119,10 @@
     (let [player_id (get args 0)
           trash (println "player_id: " player_id)
           action (get str-to-action (get args 1))
-          roles (concat (map keyword (get-roles player_id)) [:un])
-          acts (set (flatten (vals (select-keys actions roles))))]
+          ; roles (concat (map keyword (get-roles player_id)) [:un])
+          local-roles (concat (map keyword roles) [:un])
+          acts (set (flatten (vals (select-keys actions local-roles))))
+          trash (println acts)]
       (if (not (is-turn player_id))
         (println "it's not your turn!")
         (if (contains? acts action)
