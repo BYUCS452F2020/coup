@@ -2,6 +2,7 @@
   (:require
     [coup.interface :refer :all]
     [coup.back :refer :all]
+    [coup.db :refer :all]
     [nrepl.server :as nrepl]))
 
 (defn -main []

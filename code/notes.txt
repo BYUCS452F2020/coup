@@ -1,2 +1,29 @@
 To run:
 $ clojure -m coup.core
+
+
+MVP Process:
+    1. current-turn-player submits action
+    2. action is processed and turn increments
+
+If action is invalid in any way (i.e. not enough coins, targets dead player),
+    then turn does not increment, re-prompt for new action.
+
+
+Front end will handle action blocking (eventually)
+
+Simplified rules:
+    When the current-turn-player does an action, anyone may challenge
+    When a targeted player protects self, only current-turn-player may challenge
+
+Process:
+    1. current-turn-player submits action
+    2. if action targets player:
+        a. targeted-player may block
+        b. current-turn-player may challenge
+    2. another player submits reaction (if any)
+    3. current-turn-player may:
+        a. reveal incorrect card (or neither):
+            Current-turn-player loses influence card
+        b. reveal correct card
+            Challenging player loses influence card

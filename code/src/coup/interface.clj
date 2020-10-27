@@ -2,6 +2,7 @@
   (:require
     [nrepl.server :as nrepl]
     [coup.back :refer :all]
+    [coup.db :refer :all]
     [clojure.string :as str]))
 
 
@@ -13,10 +14,7 @@
 (defn parse-action
   "Gets first 2 space separated values from string"
   [line]
-  (let [split-line (str/split line #" ")]
-    (if (= 2 (count split-line))
-      split-line
-      '[])))
+  (str/split line #" "))
 
 (defn game-loop []
   (println "enter command")

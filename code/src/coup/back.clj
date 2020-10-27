@@ -1,7 +1,7 @@
 (ns coup.back
   (:require
-    [next.jdbc :as jdbc]
-    [next.jdbc.result-set :as rs]
+    [coup.db :refer :all]
+    [coup.action-handlers :refer :all]
     [clojure.pprint :refer [pprint]]))
 
 
@@ -9,128 +9,6 @@
 ; Data Access Layer
 ;-------------------------------------------------------------------
 
-(def spec
-  {:dbtype "h2"
-   :dbname "main"
-   :DATABASE_TO_UPPER false})
-
-(def ds (jdbc/get-datasource spec))
-
-(def opt {:return-keys true :builder-fn rs/as-unqualified-lower-maps})
-
-(defn init []
-  (jdbc/execute! ds ["create table if not exists user (
-                        user_id int auto_increment primary key,
-                        username varchar(32) unique
-                        )"])
-  (jdbc/execute! ds ["create table if not exists player (
-                        player_id int auto_increment primary key,
-                        user_id int,
-                        game_id int,
-                        turn_order int,
-                        role_1 varchar(32),
-                        role_2 varchar(32),
-                        num_coins int
-                        )"])
-  (jdbc/execute! ds ["create table if not exists game (
-                        game_id int auto_increment primary key,
-                        turn int,
-                        winner_id int
-                        )"])
-  (jdbc/execute! ds ["create table if not exists deck (
-                        deck_id int auto_increment primary key,
-                        game_id int,
-                        num_am int,
-                        num_as int,
-                        num_ca int,
-                        num_co int,
-                        num_du int
-                        )"]))
-
-(defn strip-id [thing]
-  (first (vals (first thing))))
-
-(defn signup-login
-  "If user with username does not exist in database, creates user"
-  [username]
-  (let [user_id (:user_id (first (jdbc/execute! ds
-                                   ["select user_id from user
-                                     where username = ?" username]
-                                   {:return-keys true :builder-fn rs/as-unqualified-lower-maps})))]
-
-    (if user_id
-      user_id
-      (:user_id (first (jdbc/execute! ds
-        ["insert into user (username) values (?)" username]
-        {:return-keys true :builder-fn rs/as-unqualified-lower-maps}))))))
-
-(defn select-all [table]
-  (jdbc/execute! ds
-    [(str "select * from " table)]
-    {:return-keys true :builder-fn rs/as-unqualified-lower-maps}))
-
-(defn select-something [x]
-  (jdbc/execute! ds
-    ["select * from user where username = ?" x]))
-
-(defn create-game []
-  (strip-id
-    (jdbc/execute! ds
-      ["insert into game (turn) values (0)"]
-      opt)))
-
-(defn create-player [user_id, game_id, turn_order, role_1, role_2]
-  (strip-id
-    (jdbc/execute! ds
-      ["insert into player (user_id, game_id, turn_order, role_1, role_2, num_coins)
-      values (?, ?, ?, ?, ?, 2)" user_id, game_id, turn_order, role_1, role_2]
-      opt)))
-
-(defn create-deck [game_id, n_am, n_as, n_ca, n_co, n_du]
-  (strip-id
-    (jdbc/execute! ds
-      ["insert into deck (game_id, num_am, num_as, num_ca, num_co, num_du)
-      values (?, ?, ?, ?, ?, ?)" game_id n_am n_as n_ca n_co n_du]
-      opt)))
-
-(defn refresh []
-  (jdbc/execute! ds
-    ["drop table user;
-     drop table player;
-     drop table game;
-     drop table deck"])
-  (init))
-
-(defn get-roles [player_id]
-  (->>
-    (jdbc/execute! ds
-      ["select role_1, role_2
-       from player
-       where player_id = ?" player_id]
-      opt)
-    first
-    vals))
-
-(defn get-player [player_id]
-  (jdbc/execute! ds
-      ["select *
-       from player
-       where player_id = ?" player_id]))
-
-(defn get-player-by-username [username]
-  (jdbc/execute! ds
-      ["select *
-       from player
-       where username = ?" username]))
-
-(defn get-current-turn-player [game_id]
-  (println "in get-current-turn-player with " game_id)
-  (jdbc/execute! ds
-      ["select player.*
-       from player
-       join game on player.game_id = game.game_id
-       where player.turn_order = game.turn
-       and game.game_id = ?" game_id]))
 
 ;(get-roles 1)
 ;(select-all "player")
@@ -214,6 +92,10 @@
    "block-assassination" :bla
    "block-foreign-aid" :blf})
 
+(def action-handlers
+  {:inc income
+   :aid foreign-aid
+   :cou coup})
 
 ; untested
 (defn is-turn [player_id]
@@ -226,19 +108,19 @@
          (= (str player_id) (str current-turn-player-id)))))))
 
 (defn receive-action
-  ([player_id action]
-   (let [roles (concat (map keyword (get-roles player_id)) [:un])
-         acts (set (flatten (vals (select-keys actions roles))))
-         trash (println acts)]
-     (if (not (is-turn player_id))
-            (println "it's not your turn!")
-            (if (contains? acts action)
-              (println "we can do that")
-              (println "we can't do that")))))
-   ([args]  ; must have 2 elements in args: player-id and action string
-    (if (not (= 2 (count args)))
-        (println "invalid command")
-        (receive-action (get args 0) (str-to-action (get args 1))))))
+  [args]
+  (if (> 2 (count args))
+    (println "invalid action, submit another")
+    (let [player_id (get args 0)
+          trash (println "player_id: " player_id)
+          action (get str-to-action (get args 1))
+          roles (concat (map keyword (get-roles player_id)) [:un])
+          acts (set (flatten (vals (select-keys actions roles))))]
+      (if (not (is-turn player_id))
+        (println "it's not your turn!")
+        (if (contains? acts action)
+          ((action action-handlers) args)
+          (println "we can't do that"))))))
 
 
 
