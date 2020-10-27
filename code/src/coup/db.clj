@@ -108,17 +108,31 @@
     first
     vals))
 
+(defn get-user [user-id]
+  (jdbc/execute! ds
+    ["select *
+     from user
+     where user_id = ?" user-id]))
+
 (defn get-player [player_id]
   (jdbc/execute! ds
       ["select *
        from player
+       join user on player.user_id = user.user_id
        where player_id = ?" player_id]))
 
-(defn get-player-by-username [username]
+(defn get-game [game-id]
   (jdbc/execute! ds
       ["select *
-       from player
-       where username = ?" username]))
+       from game
+       join deck on game.deck_id = deck.deck_id
+       where game_id = ?" game-id]))
+
+(defn get-user-players [user-id]
+  (jdbc/execute! ds
+    ["select *
+     from player
+     where player.user_id = ?" user-id]))
 
 (defn get-current-turn-player [game_id]
   (jdbc/execute! ds

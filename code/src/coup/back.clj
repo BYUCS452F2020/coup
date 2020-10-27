@@ -2,27 +2,9 @@
   (:require
     [coup.db :refer :all]
     [coup.action-handlers :refer :all]
+    [coup.info-handlers :refer :all]
     [clojure.pprint :refer [pprint]]))
 
-
-;-------------------------------------------------------------------
-; Data Access Layer
-;-------------------------------------------------------------------
-
-
-;(get-roles 1)
-;(select-all "player")
-;(refresh)
-;(create-game)
-;(select-all)
-;(signup-login "test3")
-;-------------------------------------------------------------------
-; End Data Access Layer
-;-------------------------------------------------------------------
-
-;-------------------------------------------------------------------
-; Begin Services Layer
-;-------------------------------------------------------------------
 
 ;Game flow:
 ; 1: Who's playing?
@@ -65,12 +47,6 @@
     {:game_id game_id :player_ids player_ids}))
 
 
-(defn get-player-id [username]
-  (let [res (get-player-by-username username)]
-    (if (empty? res)
-        ""
-        (:player-id (first res)))))
-
 ;actions: coup, income, foreign aid, exchange, assassinate, steal, tax
 ;reactions: block stealing, block assassination, block foreign aid
 
@@ -102,6 +78,11 @@
    :ste steal
    :tax tax})
 
+(def info-actions
+  {"player-info" player-info
+   "game-info" game-info
+   "user-info" user-info})
+
 ; untested
 (defn is-turn [player_id]
   (let [player_res (get-player player_id)]
@@ -118,36 +99,35 @@
         game-id (:game/game_id game)
         current-turn (:game/turn game)
         num-players (:num_players game)]
-    (set-turn game-id (mod (+ current-turn 1) num-players))))
+    (set-turn game-id (mod (+ current-turn 1) num-players))
+    ""))  ; return value will be appended to res for front end
+
+
+(defn process-info-action
+  [args]
+  (let [action (get args 0)]
+    ((get info-actions action) args)))
+(defn process-game-action
+  [args]
+  (let [player_id (get args 0)
+        trash (println "player_id: " player_id)
+        action (get str-to-action (get args 1))
+        ; roles (concat (map keyword (get-roles player_id)) [:un])
+        local-roles (concat (map keyword roles) [:un])
+        acts (set (flatten (vals (select-keys actions local-roles))))
+        trash (println acts)]
+    (if (not (is-turn player_id))
+      (println "it's not your turn!")
+      (if (contains? acts action)
+        (let [res ((action action-handlers) args)
+              res (concat res (increment-turn (get args 0)))]
+          res)
+        (println "we can't do that")))))
 
 (defn receive-action
   [args]
   (if (> 2 (count args))
     (println "invalid action, submit another")
-    (let [player_id (get args 0)
-          trash (println "player_id: " player_id)
-          action (get str-to-action (get args 1))
-          ; roles (concat (map keyword (get-roles player_id)) [:un])
-          local-roles (concat (map keyword roles) [:un])
-          acts (set (flatten (vals (select-keys actions local-roles))))
-          trash (println acts)]
-      (if (not (is-turn player_id))
-        (println "it's not your turn!")
-        (if (contains? acts action)
-          (do
-            ((action action-handlers) args)
-            (increment-turn (get args 0)))
-          (println "we can't do that"))))))
-
-
-
-;(keyword "stiff")
-;(concat (map key (get-roles 1)) [:un])
-;(receive-action 1 :bla)
-;(refresh)
-;(init-game ["test1" "test2" "test3"])
-;(pprint (select-all "player"))
-
-;-------------------------------------------------------------------
-; End Services Layer
-;-------------------------------------------------------------------
+    (if (contains? info-actions (get args 0))
+      (process-info-action args)
+      (process-game-action args))))

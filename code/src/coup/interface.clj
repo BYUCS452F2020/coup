@@ -3,7 +3,8 @@
     [nrepl.server :as nrepl]
     [coup.back :refer :all]
     [coup.db :refer :all]
-    [clojure.string :as str]))
+    [clojure.string :as str]
+    [clojure.pprint :refer [pprint]]))
 
 
 
@@ -21,7 +22,7 @@
   (let [line (read-line)]
     (if (not (= "exit" line))
       (do
-        (receive-action (parse-action line))
+        (pprint (receive-action (parse-action line)))
         (recur))
       (println "done"))))
 
