@@ -41,7 +41,9 @@
                         num_as int,
                         num_ca int,
                         num_co int,
-                        num_du int
+                        num_du int,
+                        role_1_in_exchange varchar(32),
+                        role_2_in_exchange varchar(32)
                         )"]))
 
 (defn strip-id [thing]
@@ -87,7 +89,7 @@
   (strip-id
     (jdbc/execute! ds
       ["insert into deck (game_id, num_am, num_as, num_ca, num_co, num_du)
-      values (?, ?, ?, ?, ?, ?)" game_id n_am n_as n_ca n_co n_du]
+      values (?, ?, ?, ?, ?, ?, ?, ?)" game_id n_am n_as n_ca n_co n_du "" ""]
       opt)))
 
 (defn refresh []
@@ -125,14 +127,20 @@
   (jdbc/execute! ds
       ["select *
        from game
-       join deck on game.deck_id = deck.deck_id
-       where game_id = ?" game-id]))
+       join deck on game.game_id = deck.game_id
+       where game.game_id = ?" game-id]))
 
 (defn get-user-players [user-id]
   (jdbc/execute! ds
     ["select *
      from player
      where player.user_id = ?" user-id]))
+
+(defn get-game-players [game-id]
+  (jdbc/execute! ds
+    ["select *
+     from player
+     where player.game_id = ?" game-id]))
 
 (defn get-current-turn-player [game_id]
   (jdbc/execute! ds
@@ -178,3 +186,95 @@
      join player on player.game_id = game.game_id
      join player as other_player on player.game_id = other_player.game_id
      where player.player_id = ?" player-id]))
+
+(defn get-deck-by-player [player-id]
+  (jdbc/execute! ds
+    ["select deck.*
+     from deck
+     join game on game.game_id = deck.game_id
+     join player on player.game_id = game.game_id
+     where player.player_id = ?" player-id]))
+
+(defn set-player-role [player-id role-num]
+  (if (= "1" role-num)
+    (jdbc/execute! ds
+      ["update player
+       set role_1 = ?
+       where player_id = ?" role-num player-id])
+    (jdbc/execute! ds
+      ["update player
+       set role_2 = ?
+       where player_id = ?" role-num player-id])))
+
+(defn set-exchange-cards [deck-id role-1 role-2]
+  (jdbc/execute! ds
+    ["update deck
+     set role_1_in_exchange = ?,
+         role_2_in_exchange = ?
+     where deck_id = ?" role-1 role-2 deck-id]))
+
+(defn get-exchange-cards [deck-id]
+  (jdbc/execute! ds
+    ["select role_1_in_exchange as role_1, role_2_in_exchange as role_2
+     from deck
+     where deck_id = ?" deck-id]))
+
+(defn decrement-num-am [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_am = num_am - 1
+     where deck_id = ?" deck-id]))
+
+(defn decrement-num-as [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_as = num_as - 1
+     where deck_id = ?" deck-id]))
+
+(defn decrement-num-ca [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_ca = num_ca - 1
+     where deck_id = ?" deck-id]))
+
+(defn decrement-num-co [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_co = num_co - 1
+     where deck_id = ?" deck-id]))
+
+(defn decrement-num-du [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_du = num_du - 1
+     where deck_id = ?" deck-id]))
+
+(defn increment-num-am [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_am = num_am + 1
+     where deck_id = ?" deck-id]))
+
+(defn increment-num-as [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_as = num_as + 1
+     where deck_id = ?" deck-id]))
+
+(defn increment-num-ca [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_ca = num_ca + 1
+     where deck_id = ?" deck-id]))
+
+(defn increment-num-co [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_co = num_co + 1
+     where deck_id = ?" deck-id]))
+
+(defn increment-num-du [deck-id]
+  (jdbc/execute! ds
+    ["update deck
+     set num_du = num_du + 1
+     where deck_id = ?" deck-id]))

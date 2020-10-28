@@ -10,7 +10,9 @@
 (defn game-info
   "Returns info about target game"
   [args]
-  (first (get-game (get args 1))))
+  (concat
+    (first (get-game (get args 1)))
+    (get-game-players (get args 1))))
 
 (defn user-info
   "Returns info about target user"

@@ -112,8 +112,8 @@
   (let [player_id (get args 0)
         trash (println "player_id: " player_id)
         action (get str-to-action (get args 1))
-        ; roles (concat (map keyword (get-roles player_id)) [:un])
-        local-roles (concat (map keyword roles) [:un])
+        ; local-roles (concat (map keyword (get-roles player_id)) [:un])  ; player is restricted to own cards
+        local-roles (concat (map keyword roles) [:un])  ; player may lie and use all cards
         acts (set (flatten (vals (select-keys actions local-roles))))
         trash (println acts)]
     (if (not (is-turn player_id))
@@ -122,7 +122,7 @@
         (let [res ((action action-handlers) args)
               res (concat res (increment-turn (get args 0)))]
           res)
-        (println "we can't do that")))))
+        (println "Action not allowed. Choose another action.")))))
 
 (defn receive-action
   [args]
