@@ -1,41 +1,113 @@
 (ns coup.action-handlers
  (:require
-   [coup.db :refer :all]))
+   [coup.db :refer :all]
+   [clojure.pprint :refer [pprint]]))
 
 ;actions: coup, income, foreign aid, exchange, assassinate, steal, tax
 ;reactions: block stealing, block assassination, block foreign aid
 
 (defn income
   "Take one coin from the treasury"
-  [args]
-  (increase-player-coins (get args 0) 1)
-  (first (get-player (get args 0))))
+  [player-id & args]
+  (change-player-coins player-id 1)
+  (get-player-m player-id))
 
 (defn foreign-aid
   "Take two coins from the treasury"
-  [args]
-  (increase-player-coins (get args 0) 2)
-  (first (get-player (get args 0))))
+  [player-id & args]
+  (change-player-coins player-id 2)
+  (get-player-m player-id))
+
+
+(def roles [:am :as :ca :co :du])
+
+(defn role-key-to-num [k]
+  (->> k
+    name
+    (str "num_")
+    keyword
+    ))
+
+;(role-key-to-num :ca)
+
+(defn exchange 
+  [player-id & args]
+  (let [deck (get-deck-by-player-m player-id)
+        drawn (->> roles
+               (mapcat (fn [role]
+                         (repeat ((role-key-to-num role) deck) role)))
+               shuffle
+               (take 2))
+        role1 (name (first drawn))
+        role2 (name (last drawn))
+        player (get-player-m player-id)
+        p-role1 (:role_1 player)
+        p-role2 (:role_2 player)
+        deck-id (:deck_id deck)]
+    ;(pprint (sort (merge (get-player-m player-id) deck)))
+    (change-num-role deck-id role1 -1)
+    (change-num-role deck-id role2 -1)
+    (change-num-role deck-id p-role1 1)
+    (change-num-role deck-id p-role2 1)
+    (set-player-role player-id 1 role1)
+    (set-player-role player-id 2 role2)
+    {:player (get-player-m player-id) 
+     :deck (get-deck-by-player-m player-id)}
+    ))
+
+
+;(exchange [1])
+
+;(get-deck-by-player-m 1)
+
+(defn kill
+  [player-id target-id role-num cost]
+  (if (< (:num_coins (get-player-m player-id)) cost)
+    {:error "You're too poor"}
+    (do
+      (change-player-coins player-id (- cost))
+      (kill-influence target-id role-num)
+      {:killer (get-player-m player-id)
+       :killee (get-player-m target-id)})))
 
 (defn coup
   "Lose 7 coins and force another player to lose an influence
   args = [player-id action target-id role-num]"
-  [args]
-  (decrease-player-coins (get args 0) 7)
-  (kill-influence (get args 2) (get args 3))
-  (list (first (get-player (get args 0)))
-        (first (get-player (get args 2)))))
+  [player-id _ target-id role-num & args]
+  (kill player-id target-id role-num 7))
 
-; (def roles [:am :as :ca :co :du])
+(defn assassinate
+  "Lose 3 coins and force another player to lose an influence.
+  args = [player-id action target-id role-num]"
+  [player-id _ target-id role-num & args]
+  (kill player-id target-id role-num 3))
 
-(defn get-list-of-roles
+(defn steal
+  "Take 2 coins from another player.
+  args = [player-id action target-id]"
+  [player-id _ target-id & args]
+  (change-player-coins target-id -2)
+  (change-player-coins player-id 2)
+  {:stealer (get-player-m player-id)
+   :stealee (get-player-m target-id)})
+
+
+(defn tax
+  "Take three coins from the treasury"
+  [player-id & args]
+  (change-player-coins player-id 3)
+  (get-player-m player-id))
+
+
+
+#_(defn get-list-of-roles
   "Returns list of x instances of role"
   [x role]
   (if (<= x 0)
     (list)
     (concat (list role) (get-list-of-roles (- x 1) role))))
 
-(defn exchange-draw
+#_(defn exchange-draw
   "Draw two influence cards"
   [args]
   (let [deck (first (get-deck-by-player (get args 0)))
@@ -54,21 +126,21 @@
     (set-exchange-cards (:deck/deck_id deck) (get drawn-cards 0) (get drawn-cards 1))
     drawn-cards))
 
-(def decrement-roles-map
+#_(def decrement-roles-map
   {"am" decrement-num-am
    "as" decrement-num-as
    "ca" decrement-num-ca
    "co" decrement-num-co
    "du" decrement-num-du})
 
-(def increment-roles-map
+#_(def increment-roles-map
   {"am" increment-num-am
    "as" increment-num-as
    "ca" increment-num-ca
    "co" increment-num-co
    "du" increment-num-du})
 
-(defn exchange-choose
+#_(defn exchange-choose
   "Decrement chosen influence by one in deck, increase traded influence by
   one in deck. Set player target influence to chosen influence.
   args = [player-id action chosen-influence role-num-to-replace (chosen-influence-2 role-num-to-replace-2)]"
@@ -99,29 +171,3 @@
             ; set new player role
             (set-player-role (get args 0) "2")))))))
     ; Process second exchange
-
-
-(defn assassinate
-  "Lose 3 coins and force another player to lose an influence.
-  args = [player-id action target-id role-num]"
-  [args]
-  (decrease-player-coins (get args 0) 3)
-  (kill-influence (get args 2) (get args 3))
-  (list (first (get-player (get args 0)))
-        (first (get-player (get args 2)))))
-
-(defn steal
-  "Take 2 coins from another player.
-  args = [player-id action target-id]"
-  [args]
-  (decrease-player-coins (get args 2) 2)
-  (increase-player-coins (get args 0) 2)
-  (list (first (get-player (get args 0)))
-        (first (get-player (get args 2)))))
-
-
-(defn tax
-  "Take three coins from the treasury"
-  [args]
-  (increase-player-coins (get args 0) 3)
-  (first (get-player (get args 0))))

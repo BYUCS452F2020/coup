@@ -17,7 +17,7 @@
 ; See your cards
 ; Abilities
 
-(def roles [:am :as :ca :co :du])
+;(def roles [:am :as :ca :co :du])
 
 (defn deal [n-players]
   (let [deck (->> roles
@@ -73,7 +73,7 @@
   {:inc income
    :aid foreign-aid
    :cou coup
-   :exc exchange-draw
+   :exc exchange
    :ass assassinate
    :ste steal
    :tax tax})
@@ -94,10 +94,10 @@
          (= (str player_id) (str current-turn-player-id)))))))
 
 (defn increment-turn [player-id]
-  (let [game (first (get-game-by-player player-id))
+  (let [game (get-game-by-player-m player-id)
         trash (println game)
-        game-id (:game/game_id game)
-        current-turn (:game/turn game)
+        game-id (:game_id game)
+        current-turn (:turn game)
         num-players (:num_players game)]
     (set-turn game-id (mod (+ current-turn 1) num-players))
     ""))  ; return value will be appended to res for front end
@@ -107,22 +107,25 @@
   [args]
   (let [action (get args 0)]
     ((get info-actions action) args)))
+
 (defn process-game-action
   [args]
-  (let [player_id (get args 0)
-        trash (println "player_id: " player_id)
+  (let [player-id (get  args 0)
+        trash (println "player_id: " player-id)
         action (get str-to-action (get args 1))
         ; local-roles (concat (map keyword (get-roles player_id)) [:un])  ; player is restricted to own cards
         local-roles (concat (map keyword roles) [:un])  ; player may lie and use all cards
         acts (set (flatten (vals (select-keys actions local-roles))))
         trash (println acts)]
-    (if (not (is-turn player_id))
+    (if (not (is-turn player-id))
       (println "it's not your turn!")
       (if (contains? acts action)
-        (let [res ((action action-handlers) args)
-              res (concat res (increment-turn (get args 0)))]
-          res)
-        (println "Action not allowed. Choose another action.")))))
+        (let [res (apply (action action-handlers) args)]
+          (if (contains? res :error) (println (:error res))
+            (do
+              (increment-turn player-id)
+              res)))
+          (println "Action not allowed. Choose another action.")))))
 
 (defn receive-action
   [args]
