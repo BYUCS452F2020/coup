@@ -15,9 +15,11 @@
 (defn foreign-aid
   "Take two coins from the treasury"
   [player-id & args]
-  (change-player-coins player-id 2)
-  (get-player-m player-id))
-
+  (if (contains? (set (get-enemy-roles player-id)) "du")
+    {:msg "A pesky duke blocked you."}
+    (do
+      (change-player-coins player-id 2)
+      (get-player-m player-id))))
 
 (def roles [:am :as :ca :co :du])
 
@@ -60,36 +62,43 @@
 
 ;(get-deck-by-player-m 1)
 
-(defn kill
-  [player-id target-id role-num cost]
-  (if (< (:num_coins (get-player-m player-id)) cost)
+(defn coup
+  [player-id _ target-id role-num & args]
+  (if (< (:num_coins (get-player-m player-id)) 7)
     {:error "You're too poor"}
     (do
-      (change-player-coins player-id (- cost))
+      (change-player-coins player-id (- 7))
       (kill-influence target-id role-num)
       {:killer (get-player-m player-id)
        :killee (get-player-m target-id)})))
 
-(defn coup
-  "Lose 7 coins and force another player to lose an influence
-  args = [player-id action target-id role-num]"
-  [player-id _ target-id role-num & args]
-  (kill player-id target-id role-num 7))
+(defn check-block [target-id role]
+  (contains? (set (get-roles target-id)) role))
 
 (defn assassinate
-  "Lose 3 coins and force another player to lose an influence.
-  args = [player-id action target-id role-num]"
   [player-id _ target-id role-num & args]
-  (kill player-id target-id role-num 3))
+  (if (< (:num_coins (get-player-m player-id)) 3)
+    {:error "You're too poor"}
+    (do
+      (change-player-coins player-id (- 3))
+      (if (check-block target-id "co")
+        {:msg "A contessa foiled your assassination."}
+        (do
+          (kill-influence target-id role-num)
+          {:killer (get-player-m player-id)
+           :killee (get-player-m target-id)})))))
 
 (defn steal
   "Take 2 coins from another player.
   args = [player-id action target-id]"
   [player-id _ target-id & args]
-  (change-player-coins target-id -2)
-  (change-player-coins player-id 2)
-  {:stealer (get-player-m player-id)
-   :stealee (get-player-m target-id)})
+  (if (or (check-block target-id "ca") (check-block target-id "am"))
+    {:msg "Your thievery was foiled"}
+    (do
+      (change-player-coins target-id -2)
+      (change-player-coins player-id 2)
+      {:stealer (get-player-m player-id)
+       :stealee (get-player-m target-id)})))
 
 
 (defn tax
@@ -97,7 +106,6 @@
   [player-id & args]
   (change-player-coins player-id 3)
   (get-player-m player-id))
-
 
 
 #_(defn get-list-of-roles

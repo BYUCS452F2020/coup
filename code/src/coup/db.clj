@@ -171,6 +171,20 @@
      where player.game_id = ?" game-id]
     opt))
 
+(defn get-enemy-roles [player-id]
+  (->> (jdbc/execute! ds
+      ["select role_1, role_2
+       from player
+       where player.game_id =
+       (select game_id
+        from player
+        where player_id = ?)
+       and player.player_id != ?" player-id player-id]
+      opt)
+    (mapcat vals)))
+
+;(get-enemy-roles 1)
+
 (defn get-current-turn-player [game_id]
   (jdbc/execute! ds
       ["select player.*
