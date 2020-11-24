@@ -37,7 +37,7 @@
 
 
 (defn init-game [users]
-  (println "received users: " users)
+  ; (println "received users: " users)
   (let [user_ids (doall (map signup-login users))
         game_id (create-game)
         [player-cards deck] (deal (count users))
@@ -95,7 +95,7 @@
 
 (defn increment-turn [player-id]
   (let [game (get-game-by-player-m player-id)
-        trash (println game)
+        ; trash (println game)
         game-id (:game_id game)
         current-turn (:turn game)
         num-players (:num_players game)]
@@ -111,26 +111,26 @@
 (defn process-game-action
   [args]
   (let [player-id (get  args 0)
-        trash (println "player_id: " player-id)
+        ; trash (println "player_id: " player-id)
         action (get str-to-action (get args 1))
         ; local-roles (concat (map keyword (get-roles player_id)) [:un])  ; player is restricted to own cards
         local-roles (concat (map keyword roles) [:un])  ; player may lie and use all cards
-        acts (set (flatten (vals (select-keys actions local-roles))))
-        trash (println acts)]
+        acts (set (flatten (vals (select-keys actions local-roles))))]
+        ; trash (println acts)]
     (if (not (is-turn player-id))
-      (println "it's not your turn!")
+      "it's not your turn!"
       (if (contains? acts action)
         (let [res (apply (action action-handlers) args)]
           (if (contains? res :error) (println (:error res))
             (do
               (increment-turn player-id)
               res)))
-          (println "Action not allowed. Choose another action.")))))
+          "Action not allowed. Choose another action."))))
 
 (defn receive-action
   [args]
   (if (> 2 (count args))
-    (println "invalid action, submit another")
+    "invalid action, submit another"
     (if (contains? info-actions (get args 0))
       (process-info-action args)
       (process-game-action args))))

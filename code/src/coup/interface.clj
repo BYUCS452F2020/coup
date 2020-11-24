@@ -23,6 +23,7 @@
     (if (not (= "exit" line))
       (do
         (pprint (receive-action (parse-action line)))
+        (println "")
         (recur))
       (println "done"))))
 
@@ -58,7 +59,7 @@
   (let [usernames (get-usernames)]
     (println (init-game usernames)))
    ; (signup-login x))
-  (prn (select-all "user"))
+  ; (prn (select-all "user"))
   (game-loop)
   (System/exit 0))
 
