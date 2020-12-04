@@ -39,11 +39,11 @@
 (defn init-game [users]
   ; (println "received users: " users)
   (let [user_ids (doall (map signup-login users))
-        game_id (create-game)
+        game_id (create-game-crux)
         [player-cards deck] (deal (count users))
         player_ids (for [[[i u_id] role] (map list (map-indexed vector user_ids) player-cards)]
                      (apply create-player u_id game_id i (map name role)))]
-    (apply create-deck game_id (vals deck))
+    (apply create-deck-crux game_id (vals deck))
     {:game_id game_id :player_ids player_ids}))
 
 
@@ -84,22 +84,25 @@
    "user-info" user-info})
 
 ; untested
-(defn is-turn [player_id]
-  (let [player_res (get-player player_id)]
+(defn is-turn [user_id game_id]
+  (let [player_res (get-player-crux user_id game_id)]
     (if (= 0 (count player_res))
       false
       (do
-       (let [current-turn-player (first (get-current-turn-player (:player/game_id (first player_res))))
-             current-turn-player-id (:player/player_id current-turn-player)]
+       (let [
+             current-turn-player (get-current-turn-player-crux game_id)
+             current-turn-player-id (key current-turn-player) ;TEST
+             current-turn-player-id (str user_id game_id)]
          (= (str player_id) (str current-turn-player-id)))))))
 
-(defn increment-turn [player-id]
-  (let [game (get-game-by-player-m player-id)
+;(defn increment-turn [player-id]
+(defn increment-turn [game_id]
+  (let [game (get-game-crux game_id)
         ; trash (println game)
-        game-id (:game_id game)
+        ;game-id (:game_id game)
         current-turn (:turn game)
         num-players (:num_players game)]
-    (set-turn game-id (mod (+ current-turn 1) num-players))
+    (set-turn-crux game-id (mod (+ current-turn 1) num-players))
     ""))  ; return value will be appended to res for front end
 
 
@@ -110,20 +113,22 @@
 
 (defn process-game-action
   [args]
-  (let [player-id (get  args 0)
+  (let [;player-id (get  args 0)
+        user-id (get args 0)
+        game-id (get args 1)
         ; trash (println "player_id: " player-id)
-        action (get str-to-action (get args 1))
+        action (get str-to-action (get args 2))
         ; local-roles (concat (map keyword (get-roles player_id)) [:un])  ; player is restricted to own cards
         local-roles (concat (map keyword roles) [:un])  ; player may lie and use all cards
         acts (set (flatten (vals (select-keys actions local-roles))))]
         ; trash (println acts)]
-    (if (not (is-turn player-id))
+    (if (not (is-turn user-id game-id))
       "it's not your turn!"
       (if (contains? acts action)
         (let [res (apply (action action-handlers) args)]
           (if (contains? res :error) (println (:error res))
             (do
-              (increment-turn player-id)
+              (increment-turn game-id)
               res)))
           "Action not allowed. Choose another action."))))
 

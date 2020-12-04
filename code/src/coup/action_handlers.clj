@@ -8,18 +8,18 @@
 
 (defn income
   "Take one coin from the treasury"
-  [player-id & args]
-  (change-player-coins player-id 1)
-  (get-player-m player-id))
+  [user-id game-id & args]
+  (change-player-coins-crux user-id game-id 1)
+  (get-player-crux user-id game-id))
 
 (defn foreign-aid
   "Take two coins from the treasury"
-  [player-id & args]
-  (if (contains? (set (get-enemy-roles player-id)) "du")
+  [user-id game-id & args]
+  (if (contains? (set (get-enemy-roles-crux user-id game-id)) "du")
     {:msg "A pesky duke blocked you."}
     (do
-      (change-player-coins player-id 2)
-      (get-player-m player-id))))
+      (change-player-coins-crux user-id game-id 2)
+      (get-player-crux user-id game-id))))
 
 (def roles [:am :as :ca :co :du])
 
@@ -33,8 +33,8 @@
 ;(role-key-to-num :ca)
 
 (defn exchange 
-  [player-id & args]
-  (let [deck (get-deck-by-player-m player-id)
+  [user-id game-id & args]
+  (let [deck (get-deck-by-game-crux game-id)
         drawn (->> roles
                (mapcat (fn [role]
                          (repeat ((role-key-to-num role) deck) role)))
@@ -42,19 +42,20 @@
                (take 2))
         role1 (name (first drawn))
         role2 (name (last drawn))
-        player (get-player-m player-id)
+        player (get-player-crux user-id game-id)
         p-role1 (:role_1 player)
         p-role2 (:role_2 player)
-        deck-id (:deck_id deck)]
+        ;deck-id (:deck_id deck)
+        ]
     ;(pprint (sort (merge (get-player-m player-id) deck)))
-    (change-num-role deck-id role1 -1)
-    (change-num-role deck-id role2 -1)
-    (change-num-role deck-id p-role1 1)
-    (change-num-role deck-id p-role2 1)
-    (set-player-role player-id 1 role1)
-    (set-player-role player-id 2 role2)
-    {:player (get-player-m player-id) 
-     :deck (get-deck-by-player-m player-id)}
+    (change-num-role-crux game-id role1 -1)
+    (change-num-role-crux game-id role2 -1)
+    (change-num-role-crux game-id p-role1 1)
+    (change-num-role-crux game-id p-role2 1)
+    (set-player-role-crux user-id game-id 1 role1)
+    (set-player-role-crux user-id game-id 2 role2)
+    {:player (get-player-crux user-id game-id) 
+     :deck (get-deck-by-game-crux user-id game-id)}
     ))
 
 
@@ -63,49 +64,49 @@
 ;(get-deck-by-player-m 1)
 
 (defn coup
-  [player-id _ target-id role-num & args]
-  (if (< (:num_coins (get-player-m player-id)) 7)
+  [user-id game-id _ target-id role-num & args]
+  (if (< (:num_coins (get-player-crux user-id game-id)) 7)
     {:error "You're too poor"}
     (do
-      (change-player-coins player-id (- 7))
-      (kill-influence target-id role-num)
-      {:killer (get-player-m player-id)
-       :killee (get-player-m target-id)})))
+      (change-player-coins-crux user-id game-id (- 7))
+      (kill-influence target-id game-id role-num)
+      {:killer (get-player-crux user-id game-id)
+       :killee (get-player-crux target-id game-id)})))
 
-(defn check-block [target-id role]
-  (contains? (set (get-roles target-id)) role))
+(defn check-block [target-id game-id role]
+  (contains? (set (get-roles-crux target-id game-id)) role))
 
 (defn assassinate
-  [player-id _ target-id role-num & args]
-  (if (< (:num_coins (get-player-m player-id)) 3)
+  [user-id game-id _ target-id role-num & args]
+  (if (< (:num_coins (get-player-crux user-id game-id)) 3)
     {:error "You're too poor"}
     (do
-      (change-player-coins player-id (- 3))
-      (if (check-block target-id "co")
+      (change-player-coins-crux user-id game-id (- 3))
+      (if (check-block target-id game-id "co")
         {:msg "A contessa foiled your assassination."}
         (do
-          (kill-influence target-id role-num)
-          {:killer (get-player-m player-id)
-           :killee (get-player-m target-id)})))))
+          (kill-influence-crux target-id game-id role-num)
+          {:killer (get-player-crux user-id game-id)
+           :killee (get-player-crux target-id game-id)})))))
 
 (defn steal
   "Take 2 coins from another player.
   args = [player-id action target-id]"
-  [player-id _ target-id & args]
-  (if (or (check-block target-id "ca") (check-block target-id "am"))
+  [user-id game-id _ target-id & args]
+  (if (or (check-block target-id game-id "ca") (check-block target-id game-id "am"))
     {:msg "Your thievery was foiled"}
     (do
-      (change-player-coins target-id -2)
-      (change-player-coins player-id 2)
-      {:stealer (get-player-m player-id)
-       :stealee (get-player-m target-id)})))
+      (change-player-coins-crux target-id game-id -2)
+      (change-player-coins-crux user-id game-id 2)
+      {:stealer (get-player-crux user-id game-id)
+       :stealee (get-player-crux target-id game-id)})))
 
 
 (defn tax
   "Take three coins from the treasury"
-  [player-id & args]
-  (change-player-coins player-id 3)
-  (get-player-m player-id))
+  [user-id game-id & args]
+  (change-player-coins-crux user-id game-id 3)
+  (get-player-crux user-id game-id))
 
 
 #_(defn get-list-of-roles

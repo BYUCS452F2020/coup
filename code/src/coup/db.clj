@@ -127,8 +127,8 @@
 (defn get-user-crux [user-id]
   (read-entity user-id))
 
-(defn get-player-crux [game_id user_id]
-  (read-entity (str game_id user_id)))
+(defn get-player-crux [user-id game-id]
+  (read-entity (str user_id game-id)))
 
 (defn get-game-crux [game-id]
   (read-entity game-id))
@@ -139,7 +139,7 @@
 (defn get-game-users-crux [game-id]
   (:players (read-entity game-id)))
 
-(defn get-enemy-roles-crux [game-id user-id]
+(defn get-enemy-roles-crux [user-id game-id]
   (let [game (read-entity game-id)
         player-ids (:players game)]
     (flatten (map #(let [player-res (read-entity %)]
@@ -150,13 +150,13 @@
 (defn get-current-turn-player-crux [game_id]
   (:turn (read-entity game_id)))
 
-(defn change-player-coins-crux [game-id user-id num-coins]
-  (update-entity-value (str game-id user-id) "coins" num-coins))
+(defn change-player-coins-crux [user-id game-id num-coins]
+  (update-entity-value (str user-id game-id) "coins" num-coins))
 
-(defn kill-influence-crux [game-id user-id role-num]
+(defn kill-influence-crux [user-id game-id role-num]
   (if (= "1" role-num)
-    (update-entity-value (str game-id user-id) "role_1" EMPTY-ROLE)
-    (update-entity-value (str game-id user-id) "role_2" EMPTY-ROLE)))
+    (update-entity-value (str user-id game-id) "role_1" EMPTY-ROLE)
+    (update-entity-value (str user-id game-id) "role_2" EMPTY-ROLE)))
 
 (defn set-turn-crux [game-id new-turn]
   (update-entity-value game-id "turn" new-turn))
@@ -164,8 +164,8 @@
 (defn get-deck-by-game-crux [game-id]
   (read-entity (str "deck_" game-id)))
 
-(defn set-player-role-crux [game-id user-id role-num role]
-    (update-entity-value (str game-id user-id) (str "role_" role-num) role))
+(defn set-player-role-crux [user-id game-id role-num role]
+    (update-entity-value (str user-id game-id) (str "role_" role-num) role))
 
 (defn change-num-role-crux [game-id role n]
   (update-entity-value (str "deck_" game-id) role n))
