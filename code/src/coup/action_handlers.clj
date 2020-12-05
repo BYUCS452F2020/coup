@@ -34,28 +34,29 @@
 
 (defn exchange
   [user-id game-id & args]
+  (println "HEY")
   (let [deck (get-deck-by-game game-id)
-        drawn (->> roles
-               (mapcat (fn [role]
-                         (repeat ((role-key-to-num role) deck) role)))
-               shuffle
-               (take 2))
-        role1 (name (first drawn))
-        role2 (name (last drawn))
+        _ (prn deck)
+        [role1 role2] (->> roles
+                        (mapcat (fn [role]
+                                  (repeat (role deck) role)))
+                        shuffle
+                        (take 2))
         player (get-player user-id game-id)
         p-role1 (:role-1 player)
         p-role2 (:role-2 player)
         ;deck-id (:deck-id deck)
         ]
     ;(pprint (sort (merge (get-player-m player-id) deck)))
+    (prn [role1 role2 p-role1 p-role2])
     (change-num-role game-id role1 -1)
     (change-num-role game-id role2 -1)
-    (change-num-role game-id p-role1 1)
-    (change-num-role game-id p-role2 1)
-    (set-player-role user-id game-id 1 role1)
-    (set-player-role user-id game-id 2 role2)
+    (change-num-role game-id (keyword p-role1) 1)
+    (change-num-role game-id (keyword p-role2) 1)
+    (set-player-role user-id game-id 1 (name role1))
+    (set-player-role user-id game-id 2 (name role2))
     {:player (get-player user-id game-id)
-     :deck (get-deck-by-game user-id game-id)}
+     :deck (get-deck-by-game game-id)}
     ))
 
 
@@ -65,7 +66,7 @@
 
 (defn coup
   [user-id game-id _ target-id role-num & args]
-  (if (< (:num-coins (get-player user-id game-id)) 7)
+  (if (< (:coins (get-player user-id game-id)) 7)
     {:error "You're too poor"}
     (do
       (change-player-coins user-id game-id (- 7))
@@ -78,7 +79,7 @@
 
 (defn assassinate
   [user-id game-id _ target-id role-num & args]
-  (if (< (:num-coins (get-player user-id game-id)) 3)
+  (if (< (:coins (get-player user-id game-id)) 3)
     {:error "You're too poor"}
     (do
       (change-player-coins user-id game-id (- 3))

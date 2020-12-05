@@ -65,125 +65,167 @@
 
 ; - - - - - - - - - - - - - - NEW CRUX FUNCTIONS - - - - - - - - - - - - - - -
 
-(def node (crux/start-node {}))
+(defonce node (crux/start-node {}))
 
-(def GAME-ID-TRACKER "game-id-tracker")
+(def GAME-ID-TRACKER :game-id-tracker)
 
-(defn read-entity
+#_(defn read-entity
   "Reads entity with id."
   [id]
   (if (nil? id)
     nil
     (crux/entity (crux/db node) (keyword id))))
 
+
+
 (defn create-entity
   "Creates entity with id. Overrides if value exists with id."
   [id entity]
   ; (println "in create-entity with" id)
-  (crux/submit-tx node [[:crux.tx/put (assoc entity :crux.db/id (keyword id))]])
+  (crux/await-tx node (crux/submit-tx node [[:crux.tx/put (assoc entity :crux.db/id id)]]))
   id)
 
-(defn update-entity-value
+#_(defn assoc-entity-value
   "Updates key in entity with id to value"
   [id key value]
-  (let [res (read-entity id)
+  (let [res (crux/entity (crux/db node) id)
         without-key (dissoc res (keyword key))
         new-entity (assoc res (keyword key) value)]
     (create-entity id new-entity)))
 
-(defn append-entity-value
+(defn assoc-entity-value
+  [id k v]
+  (crux/await-tx node (crux/submit-tx node [[:crux.tx/put (assoc (crux/entity (crux/db node) id) k v)]])))
+
+(defn update-entity-value
+  [id k f & args]
+  (crux/await-tx node (crux/submit-tx node [[:crux.tx/put (apply update (crux/entity (crux/db node) id) k f args)]])))
+
+#_(defn append-entity-value
   "Updates key in entity with id to value"
   [id key value]
-  (let [res (read-entity id)
+  (let [res (crux/entity (crux/db node) id)
         old-list ((keyword key) res)
         without-key (dissoc res (keyword key))
         new-entity (assoc res (keyword key) (conj old-list value))]
     (create-entity id new-entity)))
 
-
-(defn get-current-game-id []
-  (:index (read-entity GAME-ID-TRACKER)))
+#_(defn get-current-game-id []
+  (:index (crux/entity (crux/db node) GAME-ID-TRACKER)))
 
 (defn init []
-  (if (nil? (read-entity GAME-ID-TRACKER))
+  (if (nil? (crux/entity (crux/db node) GAME-ID-TRACKER))
       (create-entity GAME-ID-TRACKER {:index 0})))
 
 (defn signup-login
   "If user with username does not exist in database, creates user"
   [username]
   ; (println "in signup-login with" username)
-  (if (nil? (read-entity username))
-      (create-entity username {:games []})))
+  (if (nil? (crux/entity (crux/db node) {:user username}))
+      (create-entity {:user username} {:games []})))
 
-(defn create-game []
-  (let [new-game-tracker (:index (read-entity GAME-ID-TRACKER))]
+(defn create-game [users]
+  (let [new-game-tracker (:index (crux/entity (crux/db node) GAME-ID-TRACKER))]
         ; trash (println "tracker:" new-game-tracker)]
-    (create-entity (str "game-" new-game-tracker) {:turn 0 :winner-id nil :users []})
-    (str "game-" new-game-tracker)))
+    (create-entity {:game (str new-game-tracker)} {:turn 0 :winner-id nil :users users})
+    (str new-game-tracker)))
 
 (defn create-player [user-id, game-id, turn-order, role-1, role-2]
-  (create-entity (str user-id "-" game-id) {:turn-order turn-order :role-1 role-1 :role-2 role-2 :num-coins 0})
-  (println "created player:" (str user-id "-" game-id))
-  (append-entity-value user-id "games" game-id))
+  (create-entity {:user user-id :game (str game-id)} {:turn-order turn-order :role-1 role-1 :role-2 role-2 :coins 0})
+  (println "created player:" (str user-id " " game-id))
+  (update-entity-value {:user user-id} :games conj (str game-id)))
 
 (defn create-deck [game-id, n-am, n-as, n-ca, n-co, n-du]
-  (create-entity (str "deck-" game-id) {:num-am n-am :num-as n-as :num-ca n-ca :num-co n-co :num-du n-du}))
+  (create-entity {:deck (str game-id)} {:am n-am :as n-as :ca n-ca :co n-co :du n-du}))
 
 (defn get-roles [user-id game-id]
-  (let [res (read-entity (str user-id game-id))]
+  (let [res (crux/entity (crux/db node) {:user user-id :game game-id})]
     [(:role-1 res) (:role-2 res)]))
 
 (defn get-user [user-id]
-  (read-entity user-id))
+  (crux/entity (crux/db node) {:user user-id}))
 
 (defn get-player [user-id game-id]
-  (read-entity (str user-id game-id)))
+  (crux/entity (crux/db node) {:user user-id :game game-id}))
+
+;(get-player "user1""game-0")
 
 (defn get-game [game-id]
-  (read-entity game-id))
+  (crux/entity (crux/db node) {:game game-id}))
 
-(defn get-user-games [user-id]
-  (:games (read-entity user-id)))
+#_(defn get-user-games [user-id]
+  (:games (crux/entity (crux/db node) user-id)))
 
-(defn get-game-users [game-id]
-  (:players (read-entity game-id)))
+#_(defn get-game-users [game-id]
+  (:players (crux/entity (crux/db node) game-id)))
+
 
 (defn get-enemy-roles [user-id game-id]
-  (let [game (read-entity game-id)
-        player-ids (:players game)]
-    (flatten (map #(let [player-res (read-entity %)]
-                     (list (:role-1 player-res)
-                           (:role-2 player-res)))
-                  player-ids))))
+  (let [game (crux/entity (crux/db node) {:game game-id})
+        player-ids (:users game)]
+    (mapcat #((juxt :role-1 :role-2)
+              (crux/entity (crux/db node)
+                {:game game-id :user %}))
+      (remove #{user-id} player-ids))))
 
 (defn get-current-turn-player [game-id]
-  (:turn (read-entity game-id)))
+  (:turn (crux/entity (crux/db node) {:game game-id})))
 
 (defn change-player-coins [user-id game-id num-coins]
-  (update-entity-value (str user-id game-id) "coins" num-coins))
+  (update-entity-value {:user user-id :game game-id} :coins + num-coins))
 
 (defn kill-influence [user-id game-id role-num]
   (if (= "1" role-num)
-    (update-entity-value (str user-id game-id) "role-1" EMPTY-ROLE)
-    (update-entity-value (str user-id game-id) "role-2" EMPTY-ROLE)))
+    (assoc-entity-value {:user user-id :game game-id} :role-1 EMPTY-ROLE)
+    (assoc-entity-value {:user user-id :game game-id} :role-2 EMPTY-ROLE)))
 
 (defn set-turn [game-id new-turn]
-  (update-entity-value game-id "turn" new-turn))
+  (assoc-entity-value {:game game-id} :turn new-turn))
 
 (defn get-deck-by-game [game-id]
-  (read-entity (str "deck-" game-id)))
+  (crux/entity (crux/db node) {:deck game-id}))
 
 (defn set-player-role [user-id game-id role-num role]
-    (update-entity-value (str user-id game-id) (str "role-" role-num) role))
+    (assoc-entity-value {:user user-id :game game-id} (keyword (str "role-" role-num)) role))
 
 (defn change-num-role [game-id role n]
-  (update-entity-value (str "deck-" game-id) role n))
+  (update-entity-value {:deck game-id} role + n))
 
 (defn get-game-players [args]
   "get-game-players needs to be implemented in db")
 
 (defn get-user-players [args]
   "get-user-players need to be implemented in db")
+
+
+(require '[clojure.pprint :refer [pprint]])
+
+(comment
+  (pprint
+    (crux/q (crux/db node)
+      {:find '[doc]
+       :full-results? true
+       :where '[[doc :crux.db/id]]}))
+  (crux/submit-tx node
+    [[:crux.tx/put 
+      {:turn-order 1,
+       :role-1 "am",
+       :role-2 "ca",
+       :coins 1,
+       :crux.db/id {:user "user2", :game "0"}}
+      ]])
+
+  )
+
+#_(pprint
+  (map first
+    (crux/q (crux/db node)
+      {:find '[doc]
+       :full-results? true
+       :where '[[doc :crux.db/id]]})))
+
+
+
 
 ; - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

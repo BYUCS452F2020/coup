@@ -22,8 +22,11 @@
   (let [line (read-line)]
     (if (not (= "exit" line))
       (do
-        (pprint (receive-action (parse-action line)))
-        (println "")
+        (try
+          (pprint (receive-action (parse-action line)))
+          (println "")
+          (catch Exception e
+            (.printStackTrace e)))
         (recur))
       (println "done"))))
 

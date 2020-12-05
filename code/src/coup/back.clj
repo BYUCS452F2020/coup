@@ -38,10 +38,10 @@
 
 (defn init-game [users]
   ; (println "received users: " users)
-  (let [user-ids (doall (map signup-login users))
-        game-id (create-game)
+  (let [_ (doall (map signup-login users))
+        game-id (create-game users)
         [player-cards deck] (deal (count users))
-        player-ids (for [[[i u-id] role] (map list (map-indexed vector user-ids) player-cards)]
+        player-ids (for [[[i u-id] role] (map list (map-indexed vector users) player-cards)]
                      (apply create-player u-id game-id i (map name role)))]
     (apply create-deck game-id (vals deck))
     {:game-id game-id :player-ids player-ids}))
@@ -70,13 +70,13 @@
    "block-foreign-aid" :blf})
 
 (def action-handlers
-  {:inc income
-   :aid foreign-aid
-   :cou coup
-   :exc exchange
-   :ass assassinate
-   :ste steal
-   :tax tax})
+  {:inc #'income
+   :aid #'foreign-aid
+   :cou #'coup
+   :exc #'exchange
+   :ass #'assassinate
+   :ste #'steal
+   :tax #'tax})
 
 (def info-actions
   {"player-info" player-info
@@ -85,15 +85,8 @@
 
 ; untested
 (defn is-turn [user-id game-id]
-  (let [player-res (get-player user-id game-id)]
-    (if (= 0 (count player-res))
-      false
-      (do
-       (let [
-             current-turn-player (get-current-turn-player game-id)
-             current-turn-player-id (key current-turn-player) ;TEST
-             current-turn-player-id (str user-id game-id)]
-         (= (str user-id game-id) (str current-turn-player-id)))))))
+  (let [{:keys [turn-order]} (get-player user-id game-id)]
+    (= turn-order (get-current-turn-player game-id))))
 
 ;(defn increment-turn [player-id]
 (defn increment-turn [game-id]
@@ -101,7 +94,7 @@
         ; trash (println game)
         ;game-id (:game-id game)
         current-turn (:turn game)
-        num-players (:num-players game)]
+        num-players (count (:users game))]
     (set-turn game-id (mod (+ current-turn 1) num-players))
     ""))  ; return value will be appended to res for front end
 
